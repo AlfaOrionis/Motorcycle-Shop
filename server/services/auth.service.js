@@ -1,14 +1,54 @@
-const User = require("../models/user.model");
+const { User } = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const { ApiError } = require("../middlewares/apiError");
+const httpStatus = require("http-status");
 
-const createUser = (req, res, next) => {
-  const newUser = {
-    email: req.email,
-    password: req.password,
-  };
+const createUser = async (email, password) => {
+  try {
+    const user = new User({
+      email: email,
+      password: password,
+    });
 
-  User.save(newUser);
+    await user.save();
+    return user;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const genAuthToken = (user) => {
+  const token = user.generateAuthToken();
+  return token;
+};
+
+const findAndVerifyUser = async (email, password) => {
+  try {
+    const signInError = new ApiError(
+      "Wrong email or password",
+      httpStatus.UNAUTHORIZED
+    );
+    const user = await User.findOne({ email: email });
+
+    if (!user) {
+      throw signInError;
+    }
+
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      throw signInError;
+    }
+
+    return user;
+  } catch (err) {
+    throw err;
+  }
 };
 
 module.exports = {
   createUser,
+  genAuthToken,
+  findAndVerifyUser,
+  genAuthToken,
 };
