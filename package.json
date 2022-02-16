@@ -35,6 +35,8 @@
     "nodemailer": "^6.7.2",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   }

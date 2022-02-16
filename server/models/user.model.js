@@ -10,11 +10,13 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     default: "",
+    maxlength: 20,
   },
   lastname: {
     type: String,
     trim: true,
     default: "",
+    maxlength: 20,
   },
   email: {
     type: String,
@@ -32,6 +34,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+    minlength: 6,
     trim: true,
   },
   role: {
@@ -57,7 +60,7 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.generateAuthToken = function () {
   let user = this;
   const userObj = { sub: user._id.toHexString() };
-  const token = jwt.sign(userObj, process.env.SECRET, { expiresIn: "1d" });
+  const token = jwt.sign(userObj, process.env.SECRET, { expiresIn: "3h" });
   return token;
 };
 

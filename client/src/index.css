@@ -2,13 +2,64 @@
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Arial", sans-serif;
+  min-height: 300vh;
 }
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  background-color: #ffffff;
+}
+
+/* REACT SLICK STYLING  */
+
+.slick-arrow {
+  background-color: transparent !important;
+  position: absolute !important;
+  height: 100% !important;
+  width: 5% !important;
+  z-index: 10 !important;
+}
+
+.slick-prev {
+  left: 0 !important;
+}
+
+.slick-next {
+  right: 0 !important;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 40px !important;
+  color: rgb(43, 43, 43) !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+}
+
+.slick-prev::before {
+  left: 2% !important;
+}
+.slick-next::before {
+  right: 2% !important;
+}
+
+@media (max-width: 767px) {
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px !important;
+  }
 }

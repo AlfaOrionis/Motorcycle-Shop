@@ -50,5 +50,4 @@ module.exports = {
   createUser,
   genAuthToken,
   findAndVerifyUser,
-  genAuthToken,
 };

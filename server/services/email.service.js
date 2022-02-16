@@ -26,6 +26,7 @@ const sendEmail = async (userEmail, user, token, emailType) => {
 
   const TheRegisterEmail = {
     body: {
+      //After registering, user does not have a firstname, so the email will just say "Hi, "
       name: user.firstname,
       intro:
         "Welcome to MotorcycleShop! We're very excited to have you on board.",

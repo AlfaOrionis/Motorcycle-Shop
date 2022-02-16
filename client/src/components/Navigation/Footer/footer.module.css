@@ -1,0 +1,153 @@
+.Footer {
+  width: 100%;
+  height: 180px;
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  padding-top: 5px;
+}
+
+.logo {
+  font-size: 14px;
+  color: rgb(44, 161, 229);
+  font-family: "Zen Dots";
+}
+
+.Wrapper {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 8px;
+}
+
+.Wrapper p {
+  margin-top: 10px;
+  color: white;
+  font-size: 9px;
+}
+
+.NavWrapper {
+  width: 40%;
+  height: 100%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.Footer a {
+  text-decoration: none;
+  color: rgb(44, 161, 229);
+}
+.Footer span {
+  font-size: 9px;
+  color: white;
+}
+
+.Footer i {
+  font-size: 12px;
+  color: white;
+}
+
+.Footer .icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.Footer .iconsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+.Footer .icon {
+  background-color: rgb(34, 34, 255);
+}
+
+.Footer .icon:nth-of-type(2) {
+  background-color: rgb(170, 108, 37);
+}
+
+.Footer .icon:nth-of-type(3) {
+  background-color: rgb(0, 204, 255);
+}
+
+.Footer .icon:nth-of-type(4) {
+  background-color: red;
+}
+
+@media (min-width: 490px) {
+  .Wrapper p {
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .Footer span {
+    font-size: 12px;
+  }
+
+  .Footer .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .Footer i {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Wrapper p {
+    font-size: 16px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .Footer span {
+    font-size: 16px;
+  }
+
+  .Footer .NavWrapper .icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    background-color: rgb(92, 92, 92);
+  }
+
+  .NavWrapper {
+    padding-left: 10%;
+  }
+
+  .Footer i {
+    font-size: 20px;
+  }
+
+  .Footer .icon:hover {
+    background-color: rgb(34, 34, 255);
+  }
+
+  .Footer .icon:nth-of-type(2):hover {
+    background-color: rgb(170, 108, 37);
+  }
+
+  .Footer .icon:nth-of-type(3):hover {
+    background-color: rgb(0, 204, 255);
+  }
+
+  .Footer .icon:nth-of-type(4):hover {
+    background-color: red;
+  }
+}
