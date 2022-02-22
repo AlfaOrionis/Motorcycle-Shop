@@ -18,7 +18,7 @@ const getBrand = async (id) => {
 
 const getBrands = async (query) => {
   try {
-    const limit = query.limit ? query.limit : 5;
+    const limit = query.limit ? query.limit : 9999;
     const sortBy = query.sortBy ? query.sortBy : "_id";
     const order = query.order ? query.order : "asc";
 

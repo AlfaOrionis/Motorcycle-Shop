@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <header>
       <TopHeader onOpenAuth={props.onOpenAuth} />
-      <MidHeader />
+      <MidHeader openPhoneMenu={props.openPhoneMenu} />
     </header>
   );
 };

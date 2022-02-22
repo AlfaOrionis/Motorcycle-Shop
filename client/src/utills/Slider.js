@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import styles from "../Home/home.module.css";
+import styles from "../components/Home/home.module.css";
 
 const TheSlider = ({ Helmets }) => {
   //styling of the arrows is in index.css

@@ -1,4 +1,5 @@
 const httpStatus = require("http-status");
+const bcrypt = require("bcrypt");
 const { ApiError } = require("../middlewares/apiError");
 const { User } = require("../models/user.model");
 const usersService = require("../services/users.service");
@@ -40,7 +41,14 @@ const usersController = {
 
   async updateEmail(req, res, next) {
     try {
-      const { newEmail } = req.body;
+      const { password, newEmail } = req.body;
+
+      const match = await bcrypt.compare(password, req.user.password);
+
+      if (!match) {
+        throw new ApiError("Wrong Password", httpStatus.UNAUTHORIZED);
+      }
+
       //validation
       await usersService.validateEmail(newEmail);
       //updating the email

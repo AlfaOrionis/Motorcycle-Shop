@@ -1,7 +1,7 @@
 .BannerTitle span {
   color: white;
   width: 150px;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -19,7 +19,10 @@
 
 .BottomDiv .wrapper {
   width: 100%;
-  height: 150px;
+  max-width: 1700px;
+  margin: 0 auto;
+  height: 25vw;
+  max-height: 425px;
   position: relative;
 }
 
@@ -35,6 +38,10 @@
 .TopHeader h1 {
   font-size: 22px;
   padding: 0 8px 0 8px;
+  margin: 0;
+  font-weight: bold;
+  line-height: normal;
+  /* man i really have to override bootstrap css styles this is so fu... uped :/ */
   color: rgb(44, 161, 229);
   font-family: "Zen Dots";
 }
@@ -63,18 +70,23 @@
 
 .MidHeader ul {
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .MidHeader .categories span {
   padding: 0 5px;
 }
 
-.MidHeader .categories {
+.MidHeader button.categories {
+  display: block;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
 }
 
 .BottomDiv img {
@@ -90,11 +102,12 @@
     width: 200px;
     font-size: 22px;
   }
-  .BottomDiv .wrapper {
-    height: 200px;
-  }
 }
 @media (min-width: 768px) {
+  .phoneCategories {
+    display: none;
+  }
+
   .TopHeader {
     height: 50px;
     justify-content: space-around;
@@ -160,7 +173,7 @@
     color: rgb(44, 161, 229);
   }
 
-  .MidHeader .categories {
+  .MidHeader button.categories {
     display: none;
   }
 
@@ -169,7 +182,6 @@
   }
 
   .MidHeader ul {
-    height: 100%;
     list-style: none;
     display: flex;
     align-items: center;
@@ -177,24 +189,24 @@
   }
 
   .MidHeader ul li {
-    margin: 0 10px;
+    line-height: 300%;
+    padding: 0 15px;
     color: white;
     font-family: "Roboto";
     font-weight: 500;
     cursor: pointer;
-    margin-left: 30px;
     font-size: 16px;
     display: block;
   }
 
   .MidHeader ul li i {
     transition: 0.4s;
+    margin-left: 8px;
   }
+}
 
-  .MidHeader ul li:hover i {
-    color: black;
-    transform: rotate(-180deg);
-  }
+.MidHeader div:nth-of-type(1):hover i {
+  transform: rotate(180deg);
 }
 
 .BottomDiv {
@@ -202,10 +214,6 @@
 }
 
 @media (min-width: 1024px) {
-  .BottomDiv .wrapper {
-    height: 400px;
-  }
-
   .BannerTitle {
     left: 90px;
     top: 30px;

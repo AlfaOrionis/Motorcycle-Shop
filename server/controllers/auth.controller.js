@@ -47,7 +47,7 @@ const authController = {
       res
         .cookie("x-access-token", token)
         .status(httpStatus.OK)
-        .send({ user, token });
+        .send({ user: { ...user._doc, password: "", _id: "" }, token });
     } catch (err) {
       next(err);
     }
@@ -55,7 +55,8 @@ const authController = {
 
   async isAuth(req, res, next) {
     try {
-      res.json(req.user);
+      const { user } = req;
+      res.json({ ...user._doc, password: "", _id: "" });
     } catch (err) {
       console.log(err);
     }

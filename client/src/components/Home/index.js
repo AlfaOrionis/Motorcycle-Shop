@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./home.module.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import * as img from "../../Clothes/Clothes";
+import * as img from "../../Images/Clothes/Clothes";
 
-import TheSlider from "../utills/Slider";
+import TheSlider from "../../utills/Slider";
 import Categories from "./Categories";
 import Banner from "./Banner";
 

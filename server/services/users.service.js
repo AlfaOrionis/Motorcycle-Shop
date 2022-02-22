@@ -11,7 +11,7 @@ const validateToken = async (token) => {
 const validateName = async (newName) => {
   try {
     const casingError = new ApiError(
-      "Please use the right casing (Only first letter should be capitalized",
+      "Please use the right casing, Only first letter must be capitalized",
       httpStatus.NOT_ACCEPTABLE
     );
     //trimming

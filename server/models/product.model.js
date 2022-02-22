@@ -18,6 +18,7 @@ const productSchema = new Schema({
     required: [true, "Specify if this product has free shipping"],
     default: false,
   },
+  itemSold: { type: Number, default: 0 },
   size: {
     s: { type: Number, default: 0, maxlength: 4 },
     m: { type: Number, default: 0, maxlength: 4 },

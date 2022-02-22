@@ -1,0 +1,254 @@
+/*  \/ PAGINATION CARD STYLING \/ */
+
+.shopContainer {
+  width: 90%;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+}
+.shopContainer ul,
+.shopContainer p,
+.shopContainer h3 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+.shopContainer img {
+  vertical-align: 0%;
+}
+.shopContainer h3,
+.shopContainer h2 {
+  font-weight: bold;
+}
+
+/* /\ RESETING BOOTSTRAP STYLES */
+
+.paginationCard {
+  width: 100%;
+
+  box-shadow: 0px 0px 5px black;
+  margin: 10px 0;
+  padding: 10px 8px;
+}
+.paginationCard span {
+  font-size: 14px;
+}
+.paginationCard i {
+  font-size: 12px;
+  padding-right: 6px;
+  margin: 8px 0;
+}
+
+.paginationCard p {
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.paginationCard input {
+  width: 100%;
+  line-height: 250%;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid rgb(163, 163, 163);
+  padding-left: 5px;
+  margin: 5px 0;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(190, 190, 190);
+}
+.paginationCard input:focus {
+  box-shadow: 0px 0px 7px rgb(44, 161, 229);
+}
+.paginationCard a {
+  text-decoration: none;
+  color: black;
+}
+
+.paginationCard form button i {
+  font-size: 1.1em;
+}
+.paginationCard form button {
+  color: rgb(26, 26, 26);
+  line-height: 250%;
+  font-size: 1.1em;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.paginationCard h3 {
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+.paginationCard ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.formWrapper > form > ul > li {
+  font-size: 0.9em;
+  margin: 4px 7px 0 7px;
+}
+
+.paginationCard a.active {
+  color: blue;
+}
+/* \/ PRODUCTS STYLING \/ */
+/* \/ PRODUCTS STYLING \/ */
+/* \/ PRODUCTS STYLING \/ */
+
+.productContainer {
+  overflow: hidden;
+  box-shadow: 0px 0px 5px black;
+  padding: 10px;
+}
+
+.imgWrap {
+  width: 100%;
+  text-align: center;
+}
+
+.imgWrap h2 {
+  font-size: 17px;
+  padding: 5px 10px;
+  color: rgb(10, 121, 185);
+  line-height: normal;
+  margin: 0;
+}
+
+.imgWrap img {
+  width: 70%;
+  margin: 0 auto;
+}
+
+div.productAttributes > p {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  padding-right: 10px;
+  text-align: end;
+}
+
+.productAttributes p span > span {
+  color: rgb(44, 161, 229);
+  font-weight: bold;
+  font-size: 1.25em;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.productAttributes p i {
+  color: #ef9429;
+}
+
+.productAttributes ul {
+  background-color: rgb(255, 255, 255);
+  list-style: none;
+}
+
+.productAttributes ul h3 {
+  font-size: 1em;
+  background-color: #eeeeee;
+  padding-left: 8px;
+  line-height: 160%;
+}
+
+.productAttributes ul p {
+  font-size: 15px;
+  background-color: rgb(207, 207, 207);
+  padding-left: 8px;
+  line-height: 160%;
+  margin-bottom: 8px;
+}
+
+.productContainer .imagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productContainer .imagesContainer a {
+  display: block;
+  width: 70px;
+  height: 70px;
+}
+
+.productContainer .imagesContainer a img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .shopContainer {
+    width: 768px;
+  }
+  .productContainer {
+    display: flex;
+  }
+  .productDescriptionWRAPPER {
+    width: 70%;
+  }
+
+  .productAttributes ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .productAttributes ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4px;
+  }
+  .productAttributes ul li h3 {
+    width: 40%;
+  }
+  .productAttributes ul li p {
+    width: 60%;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  div.paginationCard p {
+    font-size: 1.5em;
+  }
+
+  .shopContainer {
+    width: 995px;
+  }
+  div.paginationCard {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.paginationCard div:nth-of-type(1) {
+    width: 30%;
+  }
+  div.paginationCard div:nth-of-type(2) {
+    width: 70%;
+  }
+
+  div.paginationCard input {
+    font-size: 16px;
+    width: 80%;
+    margin-right: 15px;
+  }
+
+  div.paginationCard > div ul {
+    display: flex;
+    flex-direction: row;
+  }
+  div.paginationCard > div > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1280px) {
+  .shopContainer {
+    width: 1240px;
+  }
+  div.paginationCard input {
+    width: 85%;
+  }
+}

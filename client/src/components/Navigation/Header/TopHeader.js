@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { userSignOut } from "../../../store/actions/users.actions";
 import styles from "./header.module.css";
+
 const TopHeader = (props) => {
+  const userAuth = useSelector((state) => state.users.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
     <nav className={styles.TopHeader}>
       <div className={styles.left}>
         <div className={styles.input}>
           <Link style={{ textDecoration: "none" }} to="/">
-            <h1> MotorcycleShop</h1>
+            <h1>MotorcycleShop</h1>
           </Link>
           <input placeholder="Czego szukasz?" />
           <button type="submit">
@@ -15,12 +22,29 @@ const TopHeader = (props) => {
         </div>
       </div>
       <div className={styles.right}>
-        <span onClick={props.onOpenAuth}>
-          <i class="fa-solid fa-user"></i>
-        </span>
+        {userAuth ? (
+          <Link to="/profile">
+            <i className="fa-solid fa-user"></i>
+          </Link>
+        ) : (
+          <span onClick={props.onOpenAuth}>
+            <i className="fa-solid fa-user"></i>
+          </span>
+        )}
+
         <Link to="/dashboard/user/user_cart">
           <i className="fa-solid fa-cart-shopping"></i>
         </Link>
+        {userAuth && (
+          <button
+            onClick={() => {
+              dispatch(userSignOut());
+              navigate("/");
+            }}
+          >
+            LOGOUT
+          </button>
+        )}
       </div>
     </nav>
   );
