@@ -1,13 +1,16 @@
 /*  \/ PAGINATION CARD STYLING \/ */
 
+/* \/ RESETING BOOTSTRAP STYLES */
 .shopContainer {
   width: 90%;
+  display: flex;
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
 }
 .shopContainer ul,
 .shopContainer p,
-.shopContainer h3 {
+.shopContainer h3,
+.paginationCard ul {
   margin: 0;
   padding: 0;
   line-height: normal;
@@ -19,15 +22,16 @@
 .shopContainer h2 {
   font-weight: bold;
 }
+/* */
 
-/* /\ RESETING BOOTSTRAP STYLES */
-
+/* PAGINATION CARD IN THE TOP OF THE PAGE */
+/* PAGINATION CARD IN THE TOP OF THE PAGE */
+/* PAGINATION CARD IN THE TOP OF THE PAGE */
 .paginationCard {
-  width: 100%;
-
-  box-shadow: 0px 0px 5px black;
-  margin: 10px 0;
-  padding: 10px 8px;
+  width: 90%;
+  box-shadow: 0 0 5px rgb(70, 70, 70);
+  margin: 10px auto;
+  padding: 15px;
 }
 .paginationCard span {
   font-size: 14px;
@@ -78,8 +82,8 @@
   cursor: pointer;
 }
 .paginationCard h3 {
-  font-size: 0.9em;
-  margin-top: 4px;
+  font-size: 1rem;
+  margin: 0;
 }
 .paginationCard ul {
   list-style: none;
@@ -87,27 +91,103 @@
   flex-wrap: wrap;
 }
 
-div.formWrapper > form > ul > li {
-  font-size: 0.9em;
-  margin: 4px 7px 0 7px;
-}
-
 .paginationCard a.active {
   color: blue;
 }
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+}
+.columnContainer div.paginationWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.columnContainer div.paginationWrapper ul {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.columnContainer div.paginationWrapper ul:nth-of-type(1) li {
+  margin-left: 10px;
+}
+
+/* PAGIANTION FILTER CARD */
+/* PAGIANTION FILTER CARD */
+/* PAGIANTION FILTER CARD */
+
+.productsPagination {
+  display: flex;
+  flex-direction: column;
+  width: 24%;
+  box-shadow: 0 0 5px rgb(70, 70, 70);
+  height: fit-content;
+  padding: 12px 0px 12px 12px;
+}
+.productsPagination h2 {
+  border-bottom: 2px solid rgb(231, 231, 231);
+  padding-bottom: 10px;
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
+.productsPagination h3 {
+  font-weight: 500;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.productsPagination div:nth-of-type(1) input {
+  width: 45%;
+  border: 1px solid rgb(170, 170, 170);
+  padding-left: 5px;
+  outline: none;
+}
+.productsPagination div:nth-of-type(1) input:nth-of-type(2) {
+  margin-left: 5px;
+}
+.productsPagination div:nth-of-type(1) input:focus {
+  box-shadow: 0 0 5px rgb(44, 161, 229);
+}
+
+.productsPagination div:nth-of-type(2) > ul > li {
+  list-style: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.productsPagination div:nth-of-type(2) > ul > li > input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
 /* \/ PRODUCTS STYLING \/ */
 /* \/ PRODUCTS STYLING \/ */
 /* \/ PRODUCTS STYLING \/ */
 
+.productSContainer {
+  width: 100%;
+}
+
 .productContainer {
   overflow: hidden;
-  box-shadow: 0px 0px 5px black;
+  width: 100%;
+  box-shadow: 0 0 5px rgb(70, 70, 70);
   padding: 10px;
 }
 
 .imgWrap {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .imgWrap h2 {
@@ -119,7 +199,7 @@ div.formWrapper > form > ul > li {
 }
 
 .imgWrap img {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -178,15 +258,33 @@ div.productAttributes > p {
   width: 100%;
 }
 
+/* MEDIA MEDIA MEDIA */
+/* MEDIA MEDIA MEDIA */
+/* MEDIA MEDIA MEDIA */
+
 @media (min-width: 768px) {
-  .shopContainer {
-    width: 768px;
-  }
   .productContainer {
     display: flex;
+    padding-left: 0;
+  }
+
+  .shopContainer,
+  .paginationCard {
+    width: 730px;
+  }
+  .productSContainer {
+    width: 100%;
+  }
+  .productSContainer {
+    margin-left: 0;
+  }
+
+  .columnContainer div.paginationWrapper {
+    flex-direction: row;
+    justify-content: space-between;
   }
   .productDescriptionWRAPPER {
-    width: 70%;
+    width: 60%;
   }
 
   .productAttributes ul {
@@ -206,26 +304,34 @@ div.productAttributes > p {
     width: 60%;
     margin-bottom: 0;
   }
+  .imgWrap img {
+    width: 85%;
+  }
+  .imgWrap {
+    width: 50%;
+  }
 }
 
 @media (min-width: 1024px) {
+  .shopContainer,
+  .paginationCard {
+    width: 980px;
+  }
+  .productSContainer {
+    margin-left: 20px;
+  }
+
   div.paginationCard p {
     font-size: 1.5em;
   }
 
-  .shopContainer {
-    width: 995px;
-  }
   div.paginationCard {
     display: flex;
     justify-content: space-between;
   }
 
-  div.paginationCard div:nth-of-type(1) {
-    width: 30%;
-  }
-  div.paginationCard div:nth-of-type(2) {
-    width: 70%;
+  div.paginationCard div.columnContainer {
+    width: 75%;
   }
 
   div.paginationCard input {
@@ -242,13 +348,38 @@ div.productAttributes > p {
     display: flex;
     flex-direction: column;
   }
+
+  .columnContainer {
+    margin-left: 20px;
+  }
 }
 
 @media (min-width: 1280px) {
-  .shopContainer {
-    width: 1240px;
+  .shopContainer,
+  .paginationCard {
+    width: 1180px;
   }
   div.paginationCard input {
     width: 85%;
+  }
+
+  .imgWrap {
+    width: 45%;
+  }
+  .imgWrap img {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .shopContainer,
+  .paginationCard {
+    width: 1400px;
+  }
+  .imgWrap {
+    width: 40%;
+  }
+  .imgWrap img {
+    width: 65%;
   }
 }

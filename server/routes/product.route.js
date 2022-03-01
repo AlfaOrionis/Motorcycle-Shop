@@ -4,10 +4,14 @@ const productsController = require("../controllers/products.controller");
 const auth = require("../middlewares/auth");
 const { addProductValidator } = require("../middlewares/validation");
 
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+
 router.post(
   "/product",
   auth(["createAny", "product"]),
   addProductValidator,
+  upload.array("filesss", 12),
   productsController.addProduct
 );
 
@@ -19,5 +23,12 @@ router
 
 router.get("/all", productsController.getAll);
 router.post("/paginate/all", productsController.paginateProducts);
+
+router.post(
+  "/upload_img",
+  auth(["createAny", "product"]),
+  upload.array("filesss", 10),
+  productsController.imgUpload
+);
 
 module.exports = router;

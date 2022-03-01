@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 
-.categoryWrapper div {
+.categoryWrapper a {
   width: 15%;
   background-color: white;
   box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.7);

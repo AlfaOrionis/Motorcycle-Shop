@@ -60,7 +60,28 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.generateAuthToken = function () {
   let user = this;
   const userObj = { sub: user._id.toHexString() };
-  const token = jwt.sign(userObj, process.env.SECRET, { expiresIn: "3h" });
+  const token = jwt.sign(userObj, process.env.SECRET_AUTH, { expiresIn: "8h" });
+  return token;
+};
+
+userSchema.methods.generateResetPassToken = function () {
+  let user = this;
+  const userObj = {
+    sub: user._id.toHexString(),
+    pass: user.password,
+  };
+  const token = jwt.sign(userObj, process.env.SECRET_RESET_PASS, {
+    expiresIn: "3h",
+  });
+  return token;
+};
+
+userSchema.methods.generateResetEmailToken = function () {
+  let user = this;
+  const userObj = { sub: user.email.toHexString() };
+  const token = jwt.sign(userObj, process.env.SECRET_RESET_EMAIL, {
+    expiresIn: "3h",
+  });
   return token;
 };
 

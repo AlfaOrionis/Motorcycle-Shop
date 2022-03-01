@@ -4,13 +4,15 @@ import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import Footer from "./components/Navigation/Footer/Footer";
 import Home from "./components/Home";
 import Auth from "./components/Auth";
-import styles from "./components/Navigation/Header/header.module.css";
 import MainLayout from "./hoc/MainLayout";
 import { useSelector, useDispatch } from "react-redux";
 import { userIsAuth } from "./store/actions/users.actions";
 import Profile from "./components/Profile/Profile";
 import PhoneMenu from "./components/Navigation/PhoneMenu";
 import Shop from "./components/Shop";
+import AccountVerification from "./components/Auth/AccountVerification";
+import ResetPassword from "./components/Auth/ResetPassword";
+import NewsLetterPage from "./components/Auth/NewsLetterPage";
 
 const App = () => {
   const users = useSelector((state) => state.users);
@@ -26,7 +28,7 @@ const App = () => {
     setShowPhoneMenu((prev) => !prev);
   };
   const openAuthHandle = () => {
-    //So at this point, i was wondering if i should use redux, but i decided to just pass the opening function through header to Top header
+    //I am just pass the opening function through header to Top header
     setOpenAuth((prev) => !prev);
   };
 
@@ -39,11 +41,15 @@ const App = () => {
 
       <MainLayout>
         <Routes>
-          <Route path="*" element={<Home />} />
+          <Route path="/news-letter" element={<NewsLetterPage />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/verification" element={<AccountVerification />} />
+
           <Route path="/sklep" element={<Shop />} />
           {users.auth ? (
             <Route path="/profile/*" element={<Profile users={users} />} />
           ) : null}
+          <Route path="*" element={<Home />} />
         </Routes>
       </MainLayout>
       <Footer />

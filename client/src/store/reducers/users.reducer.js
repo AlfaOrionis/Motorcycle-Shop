@@ -44,7 +44,7 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
     case USER_EDIT_EMAIL:
       return {
         ...state,
-        data: { ...state.data, email: action.payload.data.user.email },
+        data: { ...state.data, ...action.payload.data.user },
       };
 
     default:

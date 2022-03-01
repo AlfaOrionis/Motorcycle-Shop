@@ -23,7 +23,9 @@ export const userRegister = (values) => {
           auth: true,
         })
       );
-      dispatch(actions.successGlobal());
+      dispatch(
+        actions.successGlobal("Sprawdź swój email aby zweryfikować konto")
+      );
     } catch (err) {
       console.log(err.response.data.message);
       console.log(err.response.data.msg);
@@ -47,7 +49,7 @@ export const userSignIn = (values) => {
           auth: true,
         })
       );
-      dispatch(actions.successGlobal());
+      dispatch(actions.successGlobal("Witaj ponownie"));
     } catch (err) {
       console.log(err.response);
       console.log(err.response.data.message);
@@ -61,7 +63,7 @@ export const userSignOut = () => {
   return async (dispatch) => {
     removeCookie();
     dispatch(actions.signOut());
-    dispatch(actions.successGlobal("Good bye!"));
+    dispatch(actions.successGlobal("Wracaj szybko!"));
   };
 };
 
@@ -76,6 +78,7 @@ export const userIsAuth = () => {
           auth: true,
         })
       );
+      return user;
     } catch (err) {
       console.log(err.response);
       dispatch(actions.userAuthenticate({ data: {}, auth: false }));

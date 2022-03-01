@@ -1,63 +1,58 @@
 .Footer {
   width: 100%;
-  height: 180px;
   background-color: rgb(40, 40, 40);
   display: flex;
-  padding-top: 5px;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .logo {
-  font-size: 14px;
+  font-size: 18px;
   color: rgb(44, 161, 229);
+  font-weight: bold;
   font-family: "Zen Dots";
 }
 
 .Wrapper {
-  height: 100%;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-
-  padding: 8px;
+  width: 100%;
 }
 
 .Wrapper p {
   margin-top: 10px;
   color: white;
-  font-size: 9px;
+  font-size: 14px;
 }
 
 .NavWrapper {
-  width: 40%;
-  height: 100%;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: column;
-  padding: 5px;
 }
 .Footer a {
   text-decoration: none;
   color: rgb(44, 161, 229);
 }
 .Footer span {
-  font-size: 9px;
+  font-size: 15px;
   color: white;
+  margin-top: 5px;
 }
 
 .Footer i {
-  font-size: 12px;
+  font-size: 16px;
   color: white;
 }
 
 .Footer .icon {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.2s;
-  margin-left: 5px;
+  margin-left: 15px;
   cursor: pointer;
 }
 
@@ -65,7 +60,6 @@
   display: flex;
   justify-content: flex-start;
   margin-left: 10px;
-  margin-top: 2px;
 }
 
 .Footer .icon {
@@ -108,6 +102,10 @@
 }
 
 @media (min-width: 1024px) {
+  .Footer {
+    flex-direction: row;
+    padding: 20px;
+  }
   .Wrapper p {
     font-size: 16px;
   }
@@ -124,6 +122,7 @@
     width: 40px;
     height: 40px;
     margin-left: 10px;
+
     background-color: rgb(92, 92, 92);
   }
 

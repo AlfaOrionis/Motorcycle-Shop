@@ -1,9 +1,3 @@
-@media (min-width: 1280px) {
-  .mainContainer {
-    width: 70%;
-  }
-}
-
 .mainContainer {
   margin: 0 3px;
 }
@@ -97,6 +91,25 @@ tr td span:nth-of-type(2) {
   background-color: rgb(210, 210, 210);
 }
 
+.addProductForm {
+  padding: 10px;
+}
+
+.mainContainer ul {
+  padding-bottom: 4px;
+}
+.AddBrandCategory {
+  padding: 10px;
+}
+.AddBrandCategory input {
+  width: 80%;
+}
+
+.AddBrandCategory button {
+  margin-top: 15px;
+  margin-right: 15px;
+  width: 180px;
+}
 @media (max-width: 520px) {
   .prodTable {
     font-size: 10px;
@@ -108,5 +121,24 @@ tr td span:nth-of-type(2) {
   .allBrands div {
     font-size: 12px;
     width: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .AddBrandCategory input {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .AddBrandCategory {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .mainContainer {
+    width: 100%;
+  }
+  .addProductForm {
+    padding: 0;
   }
 }

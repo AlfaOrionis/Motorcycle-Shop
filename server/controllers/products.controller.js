@@ -39,14 +39,7 @@ const productsController = {
 
   async deleteProduct(req, res, next) {
     try {
-      const id = req.params.id;
-
-      const deletedProduct = await Product.findByIdAndRemove(id);
-
-      if (!deletedProduct) {
-        throw new ApiError("Product not found", httpStatus.NOT_FOUND);
-      }
-
+      const deletedProduct = await productsService.deleteProduct(req);
       res.json(deletedProduct);
     } catch (err) {
       console.log(err);
@@ -72,6 +65,16 @@ const productsController = {
       const products = await productsService.paginateProducts(req);
 
       res.json(products);
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  async imgUpload(req, res, next) {
+    try {
+      const productWithImages = await productsService.imgUpload(req);
+
+      res.json(productWithImages);
     } catch (err) {
       next(err);
     }

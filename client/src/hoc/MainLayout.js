@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { clearNotification } from "../store/actions";
 import { showToast } from "../utills/tolls";
+import NewsLetterBanner from "../utills/NewsLetterBanner";
 
 const MainLayout = (props) => {
   const dispatch = useDispatch();
@@ -28,7 +29,8 @@ const MainLayout = (props) => {
   return (
     <>
       {props.children}
-      <ToastContainer autoClose={4000} theme="dark" />
+      <NewsLetterBanner />
+      <ToastContainer autoClose={6000} theme="dark" pauseOnHover={false} />
     </>
   );
 };

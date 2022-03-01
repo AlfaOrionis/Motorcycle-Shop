@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
+import { Link } from "react-router-dom";
 import HoverMenu from "../MenuOnHover/HoverMenu";
 import classes from "../MenuOnHover/menuOnHover.module.css";
 import styles from "./header.module.css";
@@ -32,6 +32,7 @@ const MidHeader = (props) => {
       )}
       <ul>
         <li
+          onClick={() => setState(null)}
           className={classes.productsLi}
           onMouseEnter={() => {
             setState("Wszystkie produkty");
@@ -40,33 +41,37 @@ const MidHeader = (props) => {
             setState(null);
           }}
         >
-          Wszystkie produkty
+          <Link to="/sklep">Wszystkie produkty</Link>
           <i
             style={state === "Wszystkie produkty" ? arrowHover : null}
             className="fa-solid fa-angle-down "
           ></i>
         </li>
+
         <li
           className={classes.productsLi}
+          onClick={() => setState(null)}
           onMouseEnter={() => setState("Ubrania")}
           onMouseLeave={() => {
             setState(null);
           }}
         >
-          Ubrania
+          <Link to="/sklep">Ubrania </Link>
           <i
             style={state === "Ubrania" ? arrowHover : null}
             className="fa-solid fa-angle-down "
           ></i>
         </li>
+
         <li
+          onClick={() => setState(null)}
           className={classes.productsLi}
           onMouseEnter={() => setState("Akcesoria")}
           onMouseLeave={() => {
             setState(null);
           }}
         >
-          Akcesoria motocyklowe
+          <Link to="/sklep">Akcesoria motocyklowe </Link>
           <i
             style={state === "Akcesoria" ? arrowHover : null}
             className="fa-solid fa-angle-down "

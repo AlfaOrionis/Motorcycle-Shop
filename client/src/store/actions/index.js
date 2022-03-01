@@ -1,13 +1,15 @@
 import {
+  BRAND_GET_ALL,
   NOTIF_CLEAR,
   NOTIF_ERROR_GLOBAL,
   NOTIF_SUCCESS_GLOBAL,
-  PROD_DELETE,
   PROD_GET_PAGINATE,
   USER_AUTH,
   USER_EDIT_EMAIL,
   USER_EDIT_PROFILE,
   USER_SIGN_OUT,
+  CATG_GET_ALL,
+  PROD_ADD,
 } from "../types";
 
 export const userAuthenticate = (user) => ({
@@ -63,6 +65,33 @@ export const paginateProducts = (data) => {
   return (dispatch) => {
     dispatch({
       type: PROD_GET_PAGINATE,
+      payload: data,
+    });
+  };
+};
+
+export const getBrands = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: BRAND_GET_ALL,
+      payload: data,
+    });
+  };
+};
+
+export const getCategories = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: CATG_GET_ALL,
+      payload: data,
+    });
+  };
+};
+
+export const AddProduct = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: PROD_ADD,
       payload: data,
     });
   };

@@ -7,11 +7,11 @@ const productSchema = new Schema({
   name: {
     type: String,
     required: [true, "Product needs a name"],
-    minlength: 5,
+    minlength: 3,
     unique: true,
   },
   brand: { type: Schema.Types.ObjectId, ref: "Brand", required: true },
-  category: { type: String, required: true },
+  category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
   price: { type: Number, required: true, maxlength: 100 },
   shipping: {
     type: Boolean,

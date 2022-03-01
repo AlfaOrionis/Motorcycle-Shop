@@ -2,10 +2,19 @@ const { ApiError } = require("../middlewares/apiError");
 const httpStatus = require("http-status");
 const { User } = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 require("dotenv").config();
 
-const validateToken = async (token) => {
-  return jwt.verify(token, process.env.SECRET);
+const validateAuthToken = async (token) => {
+  return jwt.verify(token, process.env.SECRET_AUTH);
+};
+
+const validateResetEmailToken = async (token) => {
+  return jwt.verify(token, process.env.SECRET_RESET_EMAIL);
+};
+
+const validateResetPassToken = async (token) => {
+  return jwt.verify(token, process.env.SECRET_RESET_PASS);
 };
 
 const validateName = async (newName) => {
@@ -61,8 +70,36 @@ const validateEmail = async (newEmail) => {
   }
 };
 
+const updatePassword = async (req) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    const match = await bcrypt.compare(currentPassword, req.user.password);
+
+    if (!match) {
+      throw new ApiError("Wrong Password", httpStatus.UNAUTHORIZED);
+    }
+
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      throw new ApiError("User not found", httpStatus.NOT_FOUND);
+    }
+
+    user.password = newPassword;
+
+    const updatedUser = await user.save();
+
+    return updatedUser;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports = {
   validateName,
   validateEmail,
-  validateToken,
+  validateAuthToken,
+  validateResetEmailToken,
+  validateResetPassToken,
+  updatePassword,
 };

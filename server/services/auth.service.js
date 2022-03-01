@@ -21,6 +21,14 @@ const genAuthToken = (user) => {
   const token = user.generateAuthToken();
   return token;
 };
+const genResetEmailToken = (user) => {
+  const token = user.generateResetEmailToken();
+  return token;
+};
+const genResetPassToken = (user) => {
+  const token = user.generateResetPassToken();
+  return token;
+};
 
 const findAndVerifyUser = async (email, password) => {
   try {
@@ -49,5 +57,7 @@ const findAndVerifyUser = async (email, password) => {
 module.exports = {
   createUser,
   genAuthToken,
+  genResetPassToken,
+  genResetEmailToken,
   findAndVerifyUser,
 };

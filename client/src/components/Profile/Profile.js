@@ -1,23 +1,36 @@
 import styles from "./profile.module.css";
-import avatar from "../../Images/avatarpic.png";
-import { Routes, Route, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import ProfileSettings from "./ProfileSettings";
 import ProfileOptions from "./ProfileOptions";
-import AdminProducts from "../Admin/AdminProducts";
-
+import Admin from "../Admin";
+import AddProduct from "../Admin/AddProduct";
+import AddBrandCategory from "../Admin/AddBrandCategory";
+import { useDispatch } from "react-redux";
+import { userIsAuth } from "../../store/actions/users.actions";
 const Profile = (props) => {
+  const dispatch = useDispatch();
+  //I wanna refresh the user data everytime he comes to profile and check if he still has valid token, i consider doing it as authGuard wrapper component,  with all the components that required to be signIn
+  useEffect(() => {
+    console.log("PRZELADOWAC");
+    dispatch(userIsAuth());
+  }, []);
+
   return (
     <div className={styles.profileLayout}>
       <ProfileOptions users={props.users} />
-
-      <Routes>
-        <Route path="/" element={<ProfileSettings users={props.users} />} />
-        <Route path="/history" element={<AdminProducts />} />
-        <Route path="/favourites" element={<ProfileSettings />} />
-        <Route path="/addproducts" element={<ProfileSettings />} />
-        <Route path="/admin_products" element={<AdminProducts />} />
-        <Route path="/history" element={<ProfileSettings />} />
-      </Routes>
+      <div className={styles.profileRoutesWrapper}>
+        <Routes>
+          <Route path="/" element={<ProfileSettings users={props.users} />} />
+          <Route path="/admin_add_product" element={<AddProduct />} />
+          <Route path="/addproducts" element={<ProfileSettings />} />
+          <Route path="/admin_products" element={<Admin />} />
+          <Route
+            path="/admin_add_brand_category"
+            element={<AddBrandCategory />}
+          />
+        </Routes>
+      </div>
     </div>
   );
 };

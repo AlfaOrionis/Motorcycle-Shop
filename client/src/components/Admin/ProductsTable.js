@@ -1,13 +1,8 @@
-import { Table, Pagination, Modal, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import styles from "./admin.module.css";
 import Loader from "../../utills/Loader";
 
-import { LinkContainer } from "react-router-bootstrap";
-import { useDispatch } from "react-redux";
-import { deleteProduct } from "../../store/actions/product.actions";
-
 const ProductsTable = ({ prods, onGetToRemove }) => {
-  const dispatch = useDispatch();
   if (prods && prods.docs.length > 0) {
     return (
       <Table className={styles.prodTable} striped bordered hover>

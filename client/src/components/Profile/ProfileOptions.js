@@ -11,6 +11,8 @@ const options = [
 
 const adminOptions = [
   { text: "Products", link: "/profile/admin_products" },
+  { text: "Add product", link: "/profile/admin_add_product" },
+  { text: "Add brand/category", link: "/profile/admin_add_brand_category" },
   { text: "Manage site", link: "/profile/admin_manage_site" },
 ];
 
@@ -46,6 +48,8 @@ const ProfileOptions = (props) => {
             {option.text}
           </Link>
         ))}
+
+        {props.users.data.role === "admin" && <h2>Admin options</h2>}
 
         {props.users.data.role === "admin" &&
           adminOptions.map((option) => (

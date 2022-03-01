@@ -17,6 +17,7 @@ div.Container {
 .Container h1 {
   font-size: 1.4rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
   color: rgb(51, 51, 51);
   font-weight: bold;
   line-height: normal;

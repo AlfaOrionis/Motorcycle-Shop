@@ -1,8 +1,7 @@
 .profileLayout {
   width: 100%;
   max-width: 700px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding: 10px 0;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   margin: 2vh auto;
@@ -23,6 +22,15 @@
 .profileContainer {
   width: 100%;
   height: fit-content;
+}
+
+.profileContainer h2 {
+  font-size: 24px;
+  padding-left: 10px;
+  color: rgb(255, 183, 0);
+  padding-bottom: 12px;
+  padding-top: 5px;
+  border-bottom: 2px solid rgb(228, 228, 228);
 }
 
 .profileContainer div:nth-of-type(1) .imgContainer {
@@ -105,8 +113,9 @@
   outline: none;
   box-shadow: 0px 0px 5px rgb(0, 29, 219);
 }
+
 .profileSettings input {
-  width: 40%;
+  width: 280px;
   min-width: 150px;
   line-height: 200%;
   border: 2px solid rgb(80, 80, 80);
@@ -127,8 +136,25 @@
   border-top: 2px solid rgb(170, 170, 170);
   padding-top: 10px;
 }
+.passwordLabel {
+  border-top: 2px solid rgb(170, 170, 170);
+  padding: 10px 0;
+}
+.newPasswordModal label {
+  font-weight: 500;
+}
+
+.newPasswordModal button ~ button {
+  width: 110px;
+}
+.newPasswordModal h2 {
+  font-size: 24px;
+}
 
 @media (min-width: 768px) {
+  .profileSettings input {
+    width: 45%;
+  }
   .profileContainer div:nth-of-type(1) .imgContainer {
     width: 150px;
     height: 150px;
@@ -145,9 +171,17 @@
 }
 
 @media (min-width: 1280px) {
+  .profileSettings input {
+    width: 45%;
+    max-width: 550px;
+  }
+  .profileRoutesWrapper {
+    width: 90%;
+  }
   .profileLayout {
     width: 100%;
-    max-width: 1100px;
+    max-width: none;
+    padding: 10px 8%;
     min-height: 660px;
     justify-content: flex-start;
     display: flex;
@@ -157,12 +191,11 @@
   .profileContainer {
     box-shadow: 0px 0px 10px rgb(180, 180, 180);
     border-radius: 8px;
-    width: 28%;
-    margin-left: 5%;
+    width: 360px;
     margin-right: 5%;
   }
   .profileLayout .profileSettings {
-    width: 50%;
+    width: 100%;
     margin-left: 2%;
   }
 

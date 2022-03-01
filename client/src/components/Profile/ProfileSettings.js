@@ -1,24 +1,35 @@
 import styles from "./profile.module.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   editUserProfile,
   editUserEmail,
+  userIsAuth,
 } from "../../store/actions/users.actions";
 import { errorGlobal } from "../../store/actions";
 
 import NewEmailPopUp from "./NewEmailPopUP";
+import NewPasswordPopUp from "./NewPasswordPopUP";
 const ProfileSettings = ({ users }) => {
-  const [show, setShow] = useState(false);
+  const notifications = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
 
-  const handleOpen = () => {
-    setShow(true);
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+
+  const openEmailModal = () => {
+    setShowEmailModal(true);
   };
-  const handleClose = () => {
-    setShow(false);
+  const closeEmailModal = () => {
+    setShowEmailModal(false);
+  };
+  const openPasswordModal = () => {
+    setShowPasswordModal(true);
+  };
+  const closePasswordModal = () => {
+    setShowPasswordModal(false);
   };
 
   const handleSubmit = (password) => {
@@ -26,6 +37,15 @@ const ProfileSettings = ({ users }) => {
     const values = { password, newEmail: formikEmail.values.email };
     dispatch(editUserEmail(values));
   };
+  // In case of success, i wanna close the modal, but only the one that is open
+  useEffect(() => {
+    if (showEmailModal === true) {
+      closeEmailModal();
+    }
+    if (showPasswordModal === true) {
+      closePasswordModal();
+    }
+  }, [notifications.success]);
 
   const formikNames = useFormik({
     enableReinitialize: true,
@@ -73,7 +93,7 @@ const ProfileSettings = ({ users }) => {
     onSubmit: (values) => {
       if (values.email === users.data.email) {
         dispatch(errorGlobal("To już jest twój email!"));
-      } else handleOpen();
+      } else openEmailModal();
     },
   });
 
@@ -127,14 +147,21 @@ const ProfileSettings = ({ users }) => {
         <span className={styles.invalid}>
           {emailErr && formikEmail.errors.email}
         </span>
-        <button>Wyślij</button>
+        <button type="submit">Wyślij</button>
       </form>
 
       <NewEmailPopUp
         redInput={redInput}
-        handleSubmit={handleSubmit}
-        handleClose={handleClose}
-        show={show}
+        onHandleSubmit={handleSubmit}
+        onHandleClose={closeEmailModal}
+        onShow={showEmailModal}
+      />
+      <label className={styles.passwordLabel}>Zmień swoje hasło</label>
+      <button onClick={openPasswordModal}>Zmień hasło</button>
+
+      <NewPasswordPopUp
+        onShow={showPasswordModal}
+        onHandleClose={closePasswordModal}
       />
     </div>
   );

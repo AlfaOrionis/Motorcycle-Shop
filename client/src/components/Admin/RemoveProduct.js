@@ -1,5 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
-import { deleteProduct } from "../../store/actions/product.actions";
+import { deleteProduct } from "../../store/actions/products.actions";
 import { useDispatch } from "react-redux";
 const RemoveProduct = (props) => {
   const dispatch = useDispatch();
@@ -20,7 +20,10 @@ const RemoveProduct = (props) => {
           Anuluj
         </Button>
         <Button
-          onClick={() => dispatch(deleteProduct(props.onProdToRemove))}
+          onClick={() => {
+            props.onSetIsLoading();
+            dispatch(deleteProduct(props.onProdToRemove));
+          }}
           variant="primary"
         >
           Usuń

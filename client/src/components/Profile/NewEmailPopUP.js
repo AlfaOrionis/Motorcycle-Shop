@@ -2,12 +2,12 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const NewEmailPopUp = ({ handleClose, show, redInput, handleSubmit }) => {
+const NewEmailPopUp = ({ onHandleClose, onShow, redInput, onHandleSubmit }) => {
   const [validPass, setValidPass] = useState(true);
   const passRef = useRef();
-  // a bit of my own validation, i tried to not overdo
+  // a bit of my own validation
   return (
-    <Modal size="md" centered onHide={handleClose} show={show}>
+    <Modal size="md" centered onHide={onHandleClose} show={onShow}>
       <Modal.Header closeButton>
         <Modal.Title>Wprowadź obecne hasło</Modal.Title>
       </Modal.Header>
@@ -31,10 +31,11 @@ const NewEmailPopUp = ({ handleClose, show, redInput, handleSubmit }) => {
       <Modal.Footer>
         <Button
           variant="primary"
+          type="submit"
           onClick={() => {
             if (passRef.current.value.length < 6) {
               setValidPass(false);
-            } else handleSubmit(passRef.current.value);
+            } else onHandleSubmit(passRef.current.value);
           }}
         >
           Gotowe
