@@ -6,7 +6,7 @@ require("dotenv").config();
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
-  secure: false,
+  secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASS,
@@ -20,14 +20,13 @@ const sendEmail = async (userEmail, user, token, emailType) => {
     theme: "default",
     product: {
       name: "MotorcycleShop",
-      link: `${"www.MotorcycleShop.com"}`,
+      link: `${"www.iksde.com"}`,
     },
   });
-  const name = user.firstname ? user.firstname : "";
+
   const TheRegisterEmail = {
     body: {
-      //After registering, user does not have a firstname, so the email will just say "Hi, "
-      name: name,
+      name: user.firstname,
       intro:
         "Welcome to MotorcycleShop! We're very excited to have you on board.",
       action: {
@@ -45,7 +44,7 @@ const sendEmail = async (userEmail, user, token, emailType) => {
 
   const TheResetPasswordEmail = {
     body: {
-      name: name,
+      name: user.firstname,
       intro:
         "You have received this email because a password reset request for your account was received.",
       action: {
@@ -53,25 +52,7 @@ const sendEmail = async (userEmail, user, token, emailType) => {
         button: {
           color: "rgb(200, 0, 0)",
           text: "Reset password",
-          link: `${process.env.VERIFY_SITE}/reset-password?t=${token}`,
-        },
-      },
-      outro:
-        "Need help, or have questions? Just reply to this email, we'd love to help.",
-    },
-  };
-
-  const TheNewsLetterEmail = {
-    body: {
-      name: name,
-      intro:
-        "You have received this email because u signed up for a newsletter.",
-      action: {
-        instructions: "Please click this link to confirm.",
-        button: {
-          color: "rgb(196, 196, 0)",
-          text: "Newsletter",
-          link: `${process.env.VERIFY_SITE}/news-letter?t=${token}`,
+          link: `${process.env.VERIFY_SITE}/verification?t=${token}`,
         },
       },
       outro:
@@ -80,9 +61,7 @@ const sendEmail = async (userEmail, user, token, emailType) => {
   };
 
   const emailToSend =
-    (emailType === "Register" && TheRegisterEmail) ||
-    (emailType === "ResetPassword" && TheResetPasswordEmail) ||
-    (emailType === "NewsLetter" && TheNewsLetterEmail);
+    emailType === "Register" ? TheRegisterEmail : TheResetPasswordEmail;
 
   const emailBody = mailGenerator.generate(emailToSend);
 

@@ -10,13 +10,11 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     default: "",
-    maxlength: 20,
   },
   lastname: {
     type: String,
     trim: true,
     default: "",
-    maxlength: 20,
   },
   email: {
     type: String,
@@ -34,7 +32,6 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 6,
     trim: true,
   },
   role: {
@@ -60,28 +57,7 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.generateAuthToken = function () {
   let user = this;
   const userObj = { sub: user._id.toHexString() };
-  const token = jwt.sign(userObj, process.env.SECRET_AUTH, { expiresIn: "8h" });
-  return token;
-};
-
-userSchema.methods.generateResetPassToken = function () {
-  let user = this;
-  const userObj = {
-    sub: user._id.toHexString(),
-    pass: user.password,
-  };
-  const token = jwt.sign(userObj, process.env.SECRET_RESET_PASS, {
-    expiresIn: "3h",
-  });
-  return token;
-};
-
-userSchema.methods.generateResetEmailToken = function () {
-  let user = this;
-  const userObj = { sub: user.email.toHexString() };
-  const token = jwt.sign(userObj, process.env.SECRET_RESET_EMAIL, {
-    expiresIn: "3h",
-  });
+  const token = jwt.sign(userObj, process.env.SECRET, { expiresIn: "1d" });
   return token;
 };
 
