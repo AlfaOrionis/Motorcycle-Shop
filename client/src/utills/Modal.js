@@ -2,8 +2,12 @@ import React from "react";
 import styles from "./modal.module.css";
 import ReactDOM from "react-dom";
 
-const Backdrop = (props) => {
-  return <div className={styles.Background} onClick={props.onCloseModal}></div>;
+export const Backdrop = (props) => {
+  return (
+    <div className={styles.Background} onClick={props.onCloseModal}>
+      {props.children}
+    </div>
+  );
 };
 
 const ModalOverlay = (props) => {

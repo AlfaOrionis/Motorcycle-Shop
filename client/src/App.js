@@ -16,6 +16,7 @@ import NewsLetterPage from "./components/Auth/NewsLetterPage";
 import ProductDetails from "./components/Shop/ProductDetails";
 import CartHamburger from "./components/Shop/Cart.js/CartHamburger";
 import CartBtn from "./components/Shop/Cart.js/CartBtn";
+import { Backdrop } from "./utills/Modal";
 
 const App = () => {
   console.log("OK");
@@ -25,7 +26,7 @@ const App = () => {
   const [siteInfo, setSiteInfo] = useState("");
   const [openAuth, setOpenAuth] = useState(false);
   const [showPhoneMenu, setShowPhoneMenu] = useState(false);
-
+  const [showCart, setShowCart] = useState(false);
   //USE EFFECT
   useEffect(() => {
     fetch("/api/site/site")
@@ -42,14 +43,15 @@ const App = () => {
     //I am just passing the opening function through header to Top header
     setOpenAuth((prev) => !prev);
   };
+  const showCartHandler = (boolean) => {
+    setShowCart(boolean);
+  };
 
   return (
     <BrowserRouter>
       <Header openPhoneMenu={openPhoneMenu} onOpenAuth={openAuthHandle} />
       {openAuth && <Auth onOpenAuth={openAuthHandle} />}
-
       <PhoneMenu showPhoneMenu={showPhoneMenu} />
-
       <MainLayout>
         <Routes>
           <Route path="/news-letter" element={<NewsLetterPage />} />
@@ -66,8 +68,9 @@ const App = () => {
           <Route path="*" element={<Home siteInfo={siteInfo} />} />
         </Routes>
       </MainLayout>
-      <CartHamburger />
-      <CartBtn />
+      {showCart && <Backdrop onCloseModal={() => showCartHandler(false)} />}
+      <CartHamburger show={showCart} onHandleShow={showCartHandler} />
+      <CartBtn onHandleShow={showCartHandler} />
       <Footer siteInfo={siteInfo} />
     </BrowserRouter>
   );

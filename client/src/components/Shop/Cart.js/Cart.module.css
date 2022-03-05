@@ -8,6 +8,7 @@
   border-radius: 50%;
   border: none;
   position: fixed;
+  z-index: 50;
   right: 0;
   top: 100vh;
   transform: translate(-10%, -110%);
@@ -17,53 +18,192 @@
   background-color: rgb(7, 127, 179);
 }
 
-@media (min-width: 767px) {
-  .cartBtn {
-    transform: translate(-50%, -150%);
-  }
-}
-
 /* CART HAMBURGER CART HAMBURGER */
 /* CART HAMBURGER CART HAMBURGER */
 
 .cartHamburger {
   height: 100vh;
-  width: 95%;
+  width: 310px;
+  transform: translate(105%, 0);
   position: fixed;
   z-index: 100;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
   background-color: white;
+  transition: 0.25s cubic-bezier(0, 0, 0, 0.9);
 }
-.cartHamburger header {
-  position: relative;
-  text-align: center;
-  padding-top: 10px;
+
+.active {
+  transform: translate(0, 0);
 }
-.cartHamburger header h1 {
-  font-weight: 400;
-}
-.cartHamburger header > button {
-  position: absolute;
-  left: 5%;
-  bottom: 0;
+
+.cartHamburger button {
   background-color: transparent;
   border: none;
+}
+
+.cartHamburger h1,
+.cartHamburger p,
+.cartHamburger span,
+.cartHamburger button {
+  font-family: Hubballi;
+}
+
+.cartHamburger button:hover {
+  color: red;
+}
+
+/* CART HEADER */
+.cartHamburger header {
+  display: flex;
+  position: relative;
+  text-align: center;
+  justify-content: space-between;
+  padding: 5px 15px 0 15px;
+}
+.cartHamburger header h1 {
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .cartHamburger header > button i {
   font-size: 1.5rem;
 }
 
+/* CART ITEM CART ITEM */
+.cartHamburger main {
+  flex-grow: 1;
+  overflow-y: auto;
+}
 .cartHamburger ul {
   padding: 0;
   margin: 0;
 }
 
+.cartHamburger main > ul > li {
+  display: flex;
+  border-top: 2px solid rgb(230, 230, 230);
+  padding-top: 5px;
+}
+
 .imgWrapper {
-  width: 45%;
+  width: 40%;
+  padding: 5px;
 }
 
 .imgWrapper img {
   width: 100%;
+}
+
+.infoWrapper {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  padding: 4px 8px 4px 4px;
+}
+
+.infoWrapper div:nth-of-type(1) {
+  font-weight: 500;
+  display: flex;
+}
+.infoWrapper div:nth-of-type(1) button {
+  height: fit-content;
+  font-size: 1.2rem;
+  padding-left: 3px;
+}
+
+.infoWrapper div:nth-of-type(1) p {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 110%;
+  margin: 0;
+}
+
+.infoWrapper div:nth-of-type(3) {
+  font-weight: bold;
+  margin: 2px 0;
+  font-size: 1.2rem;
+}
+
+.infoWrapper div:nth-of-type(4) {
+  font-weight: bold;
+  text-align: end;
+  font-size: 1.2rem;
+}
+
+/* SHIPPING AND PRICE */
+.cartHamburger > footer {
+  border-top: 2px solid rgb(180, 180, 180);
+}
+.shippingDiv {
+  padding: 8px 10px;
+}
+.shippingDiv button {
+  font-size: 1.2rem;
+  color: rgb(44, 169, 221);
+  font-weight: bold;
+}
+
+.priceDiv {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.priceDiv div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+.priceDiv div > p {
+  margin: 0;
+}
+.priceDiv div:nth-of-type(1) {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.priceDiv div:nth-of-type(2) {
+  font-size: 1.2rem;
+}
+
+.cartHamburger .submitBtn {
+  color: white;
+  background-color: rgb(44, 169, 221);
+  font-weight: bold;
+  font-size: 2rem;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  padding: 2px 0;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.cartHamburger .submitBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+.shippingOptions ul li {
+  display: flex;
+  justify-content: space-between;
+}
+/*  ANIMATING ANIMATING ANIMATING  */
+.shippingOptions {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.shippingOptions.active {
+  height: 96px;
+}
+
+@media (min-width: 767px) {
+  .cartBtn {
+    transform: translate(-50%, -150%);
+  }
+  .cartHamburger {
+    width: 350px;
+  }
 }

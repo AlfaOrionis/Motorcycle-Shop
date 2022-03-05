@@ -1,8 +1,8 @@
 import styles from "./Cart.module.css";
 
-const CartBtn = () => {
+const CartBtn = ({ onHandleShow }) => {
   return (
-    <button className={styles.cartBtn}>
+    <button onClick={() => onHandleShow(true)} className={styles.cartBtn}>
       <span>3</span>
       <i className="fa-solid fa-cart-shopping"></i>
     </button>
