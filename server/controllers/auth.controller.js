@@ -2,7 +2,7 @@ const { authService } = require("../services");
 const { User } = require("../models/user.model");
 const { ApiError } = require("../middlewares/apiError");
 const httpStatus = require("http-status");
-
+const sendEmail = require("../services/email.service");
 const authController = {
   async Register(req, res, next) {
     try {
@@ -18,11 +18,19 @@ const authController = {
       const user = await authService.createUser(email, password);
 
       const token = await authService.genAuthToken(user);
+      await sendEmail(email, user, token, "Register");
 
-      res.cookie("x-access-token", token).status(httpStatus.CREATED).send({
-        user,
-        token,
-      });
+      res
+        .cookie("x-access-token", token)
+        .status(httpStatus.CREATED)
+        .send({
+          user: {
+            ...user._doc,
+            _id: "",
+            password: "",
+          },
+          token,
+        });
     } catch (err) {
       next(err);
     }
@@ -39,7 +47,7 @@ const authController = {
       res
         .cookie("x-access-token", token)
         .status(httpStatus.OK)
-        .send({ user, token });
+        .send({ user: { ...user._doc, password: "", _id: "" }, token });
     } catch (err) {
       next(err);
     }
@@ -47,14 +55,8 @@ const authController = {
 
   async isAuth(req, res, next) {
     try {
-      res.json(req.user);
-    } catch (err) {
-      console.log(err);
-    }
-  },
-
-  async xd1(req, res, next) {
-    try {
+      const { user } = req;
+      res.json({ ...user._doc, password: "", _id: "" });
     } catch (err) {
       console.log(err);
     }

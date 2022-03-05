@@ -1,0 +1,27 @@
+const mongoose = require("mongoose");
+
+const siteSchema = mongoose.Schema({
+  address: {
+    required: true,
+    type: String,
+  },
+  phone: {
+    required: true,
+    type: Number,
+  },
+  email: {
+    required: true,
+    type: String,
+  },
+  facebook: {
+    type: String,
+    default: "",
+  },
+  AdvertisementIMG: {
+    fullIMG: { type: String, default: "" },
+    phoneIMG: { type: String, default: "" },
+  },
+});
+
+const Site = mongoose.model("Site", siteSchema);
+module.exports = { Site };

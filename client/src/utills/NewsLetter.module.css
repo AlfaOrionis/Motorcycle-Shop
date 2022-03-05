@@ -1,0 +1,90 @@
+.newsLetter {
+  width: 100%;
+  background-position: center;
+  background-size: contain !important;
+  background: url("../Images/newsletter.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 0;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.newsLetter > form {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin: 5px 0;
+}
+
+.newsLetter p {
+  font-size: 24px;
+}
+.newsLetter button {
+  width: 35%;
+  border-radius: 17px;
+  background-color: blue;
+  color: white;
+  border: none;
+}
+.newsLetter button:hover {
+  background-color: rgb(0, 0, 129);
+}
+.newsLetter input {
+  width: 60%;
+  border-radius: 17px;
+  font-size: 0.9rem;
+  padding: 6px 7px;
+  border: 2px solid transparent;
+  outline: none;
+}
+.newsLetter input:focus {
+  border-color: rgb(106, 233, 255);
+}
+.statue input {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.statue input::before {
+  content: "";
+  display: block;
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+}
+.statue {
+  width: 500px;
+  display: flex;
+  margin: 10px 0;
+}
+.statue span {
+  text-align: start;
+  font-size: 0.85rem;
+}
+
+.statue div {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 560px) {
+  .newsLetter span {
+    font-size: 0.75rem;
+  }
+  .newsLetter p {
+    font-size: 20px;
+  }
+  .newsLetter input {
+    padding: 3px 3px 3px 5px;
+  }
+  .newsLetter > form,
+  .statue {
+    width: 300px;
+  }
+}
