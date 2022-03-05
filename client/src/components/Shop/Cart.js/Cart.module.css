@@ -1,0 +1,69 @@
+/* CART BUTTON CART BUTTON */
+/* CART BUTTON CART BUTTON */
+.cartBtn {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(44, 168, 221);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  right: 0;
+  top: 100vh;
+  transform: translate(-10%, -110%);
+}
+
+.cartBtn:hover {
+  background-color: rgb(7, 127, 179);
+}
+
+@media (min-width: 767px) {
+  .cartBtn {
+    transform: translate(-50%, -150%);
+  }
+}
+
+/* CART HAMBURGER CART HAMBURGER */
+/* CART HAMBURGER CART HAMBURGER */
+
+.cartHamburger {
+  height: 100vh;
+  width: 95%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: white;
+}
+.cartHamburger header {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+.cartHamburger header h1 {
+  font-weight: 400;
+}
+.cartHamburger header > button {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.cartHamburger header > button i {
+  font-size: 1.5rem;
+}
+
+.cartHamburger ul {
+  padding: 0;
+  margin: 0;
+}
+
+.imgWrapper {
+  width: 45%;
+}
+
+.imgWrapper img {
+  width: 100%;
+}

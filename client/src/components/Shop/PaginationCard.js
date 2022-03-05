@@ -1,8 +1,32 @@
 import styles from "./shop.module.css";
-import { Link, NavLink } from "react-router-dom";
-import { Pagination } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import PaginationPage from "./PaginationPage";
+import PaginationFilterCard from "./PaginationFilterCard";
+import { useState } from "react";
 
-const PaginationCard = ({ onkeywordsHandler }) => {
+const PaginationCard = ({
+  limitState,
+  orderState,
+  sortByState,
+  products,
+  onkeywordsHandler,
+  onGoToPrev,
+  onGoToNext,
+  onHandleSortByPrice,
+  onHandleSortByDate,
+  onHandleLimit,
+  //props for PaginationFIlterCard
+  categories,
+  brands,
+  categoriesState,
+  onHandleMinimum,
+  onHandleMaximum,
+  onSizeHandler,
+  oncategoryHandler,
+  onBrandHandler,
+}) => {
+  const [showFiltering, setShowFiltering] = useState(false);
+
   return (
     <div className={styles.paginationCard}>
       <div>
@@ -19,7 +43,7 @@ const PaginationCard = ({ onkeywordsHandler }) => {
           </li>
         </ul>
 
-        <p>KASKI INTEGRALNE </p>
+        <p>Produkty</p>
       </div>
       <div className={styles.columnContainer}>
         <div className={styles.formWrapper}>
@@ -28,8 +52,18 @@ const PaginationCard = ({ onkeywordsHandler }) => {
               onChange={(e) => onkeywordsHandler(e.target.value)}
               placeholder="Wpisz czego szukasz"
             />
-            <button>
+
+            <button disabled>
               SZUKAJ <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowFiltering((prev) => !prev);
+              }}
+              className={styles.filterBtn}
+            >
+              FILTRUJ <i className="fa-solid fa-sort"></i>
             </button>
           </form>
         </div>
@@ -37,54 +71,96 @@ const PaginationCard = ({ onkeywordsHandler }) => {
           <ul>
             <h3>Pokaż:</h3>
             <li>
-              <NavLink
-                className={(a) => (a.isActive ? `${styles.active}` : null)}
-                to="/sklep"
+              <button
+                className={
+                  sortByState === "date" && orderState === "desc"
+                    ? `${styles.active}`
+                    : null
+                }
+                onClick={() => onHandleSortByDate("desc")}
               >
                 Nowo dodane
-              </NavLink>
+              </button>
             </li>
             <li>
-              <NavLink
-                className={(a) => (a.isActive ? `${styles.active}` : null)}
-                to="/"
-              >
-                Popularne
-              </NavLink>
+              <button>Popularne</button>
             </li>
             <li>
-              <NavLink
-                className={(a) => (a.isActive ? `${styles.active}` : null)}
-                to="/"
+              <button
+                className={
+                  sortByState === "price" && orderState === "desc"
+                    ? `${styles.active}`
+                    : null
+                }
+                onClick={() => onHandleSortByPrice("desc")}
               >
                 Najdroższe
-              </NavLink>
+              </button>
             </li>
             <li>
-              <NavLink
-                className={(a) => (a.isActive ? `${styles.active}` : null)}
-                to="/"
+              <button
+                className={
+                  sortByState === "price" && orderState === "asc"
+                    ? `${styles.active}`
+                    : null
+                }
+                onClick={() => onHandleSortByPrice("asc")}
               >
                 Najtańsze
-              </NavLink>
+              </button>
             </li>
           </ul>
 
-          <Pagination className={styles.prodPaginatePage}>
-            <>
-              <Pagination.Prev />
-              <Pagination.Item>1</Pagination.Item>
-            </>
+          <div className={styles.limitWrapper}>
+            <h3>Wyświetl:</h3>
+            <div>
+              <button
+                className={limitState === 10 ? `${styles.active}` : null}
+                onClick={() => {
+                  onHandleLimit(10);
+                }}
+              >
+                10
+              </button>
+              <button
+                className={limitState === 20 ? `${styles.active}` : null}
+                onClick={() => {
+                  onHandleLimit(20);
+                }}
+              >
+                20
+              </button>
+              <button
+                className={limitState === 50 ? `${styles.active}` : null}
+                onClick={() => {
+                  onHandleLimit(50);
+                }}
+              >
+                50
+              </button>
+            </div>
+          </div>
 
-            <Pagination.Item active>1</Pagination.Item>
-
-            <>
-              <Pagination.Item>1</Pagination.Item>
-              <Pagination.Next />
-            </>
-          </Pagination>
+          <PaginationPage
+            products={products}
+            onGoToPrev={onGoToPrev}
+            onGoToNext={onGoToNext}
+          />
         </div>
       </div>
+      {showFiltering && window.innerWidth < 1024 && (
+        <PaginationFilterCard
+          phoneType={true}
+          categories={categories}
+          brands={brands}
+          categoriesState={categoriesState}
+          onHandleMinimum={onHandleMinimum}
+          onHandleMaximum={onHandleMaximum}
+          onSizeHandler={onSizeHandler}
+          oncategoryHandler={oncategoryHandler}
+          onBrandHandler={onBrandHandler}
+        />
+      )}
     </div>
   );
 };

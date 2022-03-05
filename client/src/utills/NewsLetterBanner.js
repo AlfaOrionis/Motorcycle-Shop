@@ -24,7 +24,7 @@ const NewsLetterBanner = () => {
     }
   };
   return (
-    <div className={styles.newsLetter}>
+    <div id="newsLetter" className={styles.newsLetter}>
       <span>Newsletter</span>
       <p> Bądź na bieżąco z nowościami w MotorcycleShop!</p>
       <form onSubmit={handleSubmit}>

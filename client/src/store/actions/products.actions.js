@@ -5,16 +5,18 @@ import { getAuthHeader, getTokenCookie } from "../../utills/tolls";
 export const productsByPaginate = (args) => {
   return async (dispatch) => {
     try {
-      const products = await axios.post("/api/products/paginate/all", {
+      console.log(args.sortBy);
+      const products = await axios.post(`/api/products/paginate/all`, {
+        page: args.page,
         brands: args.brands,
         keywords: args.keywords,
         size: args.size,
         categories: args.categories,
-        min: args.min,
-        max: args.max,
+        min: args.min * 1, //convert to number
+        max: args.max * 1,
         limit: args.limit,
+        order: args.order,
         sortBy: args.sortBy,
-        page: args.page,
       });
 
       dispatch(actions.paginateProducts(products.data));

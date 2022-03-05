@@ -37,6 +37,16 @@ const productsController = {
     }
   },
 
+  async getProdsFromAllCats(req, res, next) {
+    try {
+      const prodsFromAllCats = await productsService.getProdsFromAllCats(req);
+
+      res.json(prodsFromAllCats);
+    } catch (err) {
+      next(err);
+    }
+  },
+
   async deleteProduct(req, res, next) {
     try {
       const deletedProduct = await productsService.deleteProduct(req);

@@ -17,6 +17,10 @@ const siteSchema = mongoose.Schema({
     type: String,
     default: "",
   },
+  AdvertisementIMG: {
+    fullIMG: { type: String, default: "" },
+    phoneIMG: { type: String, default: "" },
+  },
 });
 
 const Site = mongoose.model("Site", siteSchema);

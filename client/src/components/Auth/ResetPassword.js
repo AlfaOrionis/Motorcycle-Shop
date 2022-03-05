@@ -26,7 +26,7 @@ const ResetPassword = () => {
     if (!isValidParam || !token) {
       navigate("/", { replace: true });
     }
-  }, []);
+  }, [isValidParam, navigate, token]);
 
   //REF
   const passRef = useRef();

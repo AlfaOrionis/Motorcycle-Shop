@@ -13,19 +13,21 @@ const NewsLetterPage = () => {
   const isValidParam = theParam[0] === "?t";
   const token = theParam[1];
 
-  useEffect(async () => {
-    if (!isValidParam || !token) {
-      navigate("/");
-    } else {
-      try {
-        await axios.post("/api/users/news_letter_sign_up", { token: token });
-        setVerificationResponse("Success");
-      } catch (err) {
-        console.log(err.response.data);
-        setVerificationResponse("Error");
+  useEffect(() => {
+    async function newsLetter() {
+      if (!isValidParam || !token) {
+        navigate("/");
+      } else {
+        try {
+          await axios.post("/api/users/news_letter_sign_up", { token: token });
+          setVerificationResponse("Success");
+        } catch (err) {
+          console.log(err.response.data);
+          setVerificationResponse("Error");
+        }
       }
     }
-  }, []);
+  }, [isValidParam, navigate, token]);
 
   if (verificationResponse === "Success") {
     return (

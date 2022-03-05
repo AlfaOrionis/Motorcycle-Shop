@@ -48,7 +48,7 @@ const ProductsTable = ({ prods, onGetToRemove }) => {
                   onClick={() => {
                     onGetToRemove(prod._id);
                   }}
-                  className={styles.removeBtn}
+                  className={styles.rmvBtn}
                 >
                   Remove
                 </button>

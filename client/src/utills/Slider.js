@@ -1,36 +1,46 @@
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import styles from "../components/Home/home.module.css";
+import React from "react";
+import { imageCheck } from "./tolls";
 
-const TheSlider = ({ Helmets }) => {
-  //styling of the arrows is in index.css
-  var settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    arrows: true,
-  };
+//styling of the arrows is in index.css
+var settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: window.innerWidth > 766 ? 4 : 2,
+  arrows: true,
+};
+
+const TheSlider = ({ prods, title, catId }) => {
+  const linkTo = `/sklep?categories=${catId}`;
 
   return (
-    <div className={styles.helmetsWrapper}>
-      <Slider {...settings}>
-        <div>
-          <img src={Helmets} alt=" KASK"></img>
-        </div>
-        <div>
-          <img src={Helmets} alt=" KASK"></img>
-        </div>
-        <div>
-          <img src={Helmets} alt=" KASK"></img>
-        </div>
-        <div>
-          <img src={Helmets} alt=" KASK"></img>
-        </div>
-        <div>
-          <img src={Helmets} alt=" KASK"></img>
-        </div>
-      </Slider>
-    </div>
+    <>
+      <Link className={styles.sliderTitle} to={linkTo}>
+        <h1>{title}</h1>
+        <span>(Zobacz wszystkie)</span>
+      </Link>
+      <div className={styles.sliderWrapper}>
+        <Slider {...settings}>
+          {prods &&
+            prods.map((prod) => (
+              <div className={styles.sliderDiv} key={prod._id}>
+                <Link style={{ height: "100%", position: "relative" }} to="/">
+                  <img src={imageCheck(prod)} />
+
+                  <h3>
+                    <span style={{ fontWeight: "400" }}>od</span>{" "}
+                    {prod.price + ",00 zł"}
+                  </h3>
+                  <h2>{prod.name}</h2>
+                </Link>
+              </div>
+            ))}
+        </Slider>
+      </div>
+    </>
   );
 };
 
-export default TheSlider;
+export default React.memo(TheSlider);

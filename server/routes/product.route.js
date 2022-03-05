@@ -24,6 +24,11 @@ router
 router.get("/all", productsController.getAll);
 router.post("/paginate/all", productsController.paginateProducts);
 
+router.get(
+  "/get_products_from_main_categories",
+  productsController.getProdsFromAllCats
+);
+
 router.post(
   "/upload_img",
   auth(["createAny", "product"]),

@@ -55,7 +55,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     dispatch(getBrands());
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(productsByPaginate(state));
@@ -64,7 +64,7 @@ const AdminProducts = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [state]);
+  }, [state, dispatch]);
   useEffect(() => {
     setIsLoading(false);
     // so if the product has been removed succesfullly, i wanna clear the state close the modal
@@ -73,7 +73,7 @@ const AdminProducts = () => {
       // i dispatch again to update the list of products, otherwise the removed product would still be there
       dispatch(productsByPaginate(state));
     }
-  }, [notifications]);
+  }, [notifications, dispatch, state]);
 
   const setLoading = () => {
     setIsLoading(true);

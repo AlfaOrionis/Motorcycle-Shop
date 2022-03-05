@@ -5,7 +5,7 @@ import ProfileSettings from "./ProfileSettings";
 import ProfileOptions from "./ProfileOptions";
 import Admin from "../Admin";
 import AddProduct from "../Admin/AddProduct";
-import AddBrandCategory from "../Admin/AddBrandCategory";
+import AddRemoveBrandCategory from "../Admin/AddRemoveBrandCategory";
 import { useDispatch } from "react-redux";
 import { userIsAuth } from "../../store/actions/users.actions";
 const Profile = (props) => {
@@ -14,7 +14,7 @@ const Profile = (props) => {
   useEffect(() => {
     console.log("PRZELADOWAC");
     dispatch(userIsAuth());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.profileLayout}>
@@ -27,7 +27,7 @@ const Profile = (props) => {
           <Route path="/admin_products" element={<Admin />} />
           <Route
             path="/admin_add_brand_category"
-            element={<AddBrandCategory />}
+            element={<AddRemoveBrandCategory />}
           />
         </Routes>
       </div>

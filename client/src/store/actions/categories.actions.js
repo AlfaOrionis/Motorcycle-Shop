@@ -11,3 +11,5 @@ export const getCategories = () => {
     }
   };
 };
+
+//DELETE CATEGORY IS IN BRANDS.ACTIONS

@@ -8,6 +8,10 @@ const brandSchema = new Schema({
     unique: true,
     maxlength: 100,
   },
+  description: {
+    type: String,
+    default: "",
+  },
 });
 
 const Brand = mongoose.model("Brand", brandSchema);

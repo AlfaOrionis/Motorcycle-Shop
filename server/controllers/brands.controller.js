@@ -6,7 +6,7 @@ const { brandsService } = require("../services");
 const brandsController = {
   async addBrand(req, res, next) {
     try {
-      const { brandName } = req.body;
+      const { brandName, description } = req.body;
 
       const brand = await Brand.findOne({ name: brandName });
 
@@ -18,6 +18,7 @@ const brandsController = {
       }
       const newBrand = new Brand({
         name: brandName,
+        description: description,
       });
 
       await newBrand.save();

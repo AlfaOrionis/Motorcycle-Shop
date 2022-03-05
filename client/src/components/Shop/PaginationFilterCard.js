@@ -6,18 +6,34 @@ const PaginationFilterCard = ({
   onBrandHandler,
   oncategoryHandler,
   onSizeHandler,
+  onHandleMinimum,
+  onHandleMaximum,
+  categoriesState,
+  phoneType,
 }) => {
   const sizes = ["s", "m", "l", "xl", "xxl"];
 
   return (
-    <div className={styles.productsPagination}>
+    <div
+      className={`${styles.productsPagination} ${
+        phoneType ? styles.phoneType : ""
+      }`}
+    >
       <h2>Filtry</h2>
 
       <div>
         <h3>Cena</h3>
         <div>
-          <input type="number" placeholder="Od" />
-          <input type="number" placeholder="Do" />
+          <input
+            onChange={(e) => onHandleMinimum(e.target.value)}
+            type="number"
+            placeholder="Od"
+          />
+          <input
+            onChange={(e) => onHandleMaximum(e.target.value)}
+            type="number"
+            placeholder="Do"
+          />
         </div>
       </div>
 
@@ -62,6 +78,7 @@ const PaginationFilterCard = ({
             categories.map((category) => (
               <li key={category._id}>
                 <input
+                  checked={categoriesState.includes(category._id)}
                   onChange={() => oncategoryHandler(category._id)}
                   value={category._id}
                   type="checkbox"

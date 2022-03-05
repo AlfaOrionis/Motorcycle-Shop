@@ -44,7 +44,7 @@ export const getProperties = (properties) => {
   //h3 is property and p is value of that property
   const readyToDisplay = ArrayOfProperties.map((prop) => {
     return (
-      <li>
+      <li key={prop}>
         <h3>{prop.split(":")[0]}</h3>
         <p>{prop.split(":")[1]}</p>
       </li>

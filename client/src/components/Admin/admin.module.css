@@ -12,7 +12,8 @@ div.mainContainer > input {
   font-size: 17px;
 }
 
-button.editBtn {
+button.editBtn,
+button.rmvBtn {
   background-color: transparent;
 }
 
@@ -29,10 +30,6 @@ tr td:nth-of-type(5) {
 
 tr td:nth-of-type(6) {
   background-color: rgb(255, 145, 0);
-}
-
-button.removeBtn {
-  background-color: transparent;
 }
 
 tr td .date {
@@ -98,6 +95,8 @@ tr td span:nth-of-type(2) {
 .mainContainer ul {
   padding-bottom: 4px;
 }
+
+/* ADD REMOVE BRAND CATEGORY */
 .AddBrandCategory {
   padding: 10px;
 }
@@ -110,6 +109,26 @@ tr td span:nth-of-type(2) {
   margin-right: 15px;
   width: 180px;
 }
+
+.removeBtn {
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  margin: 7px 0;
+  width: 140px;
+}
+
+.AddBrandCategory ul {
+  margin-top: 10px;
+  width: 305px;
+  list-style: none;
+}
+.AddBrandCategory ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media (max-width: 520px) {
   .prodTable {
     font-size: 10px;

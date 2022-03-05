@@ -7,6 +7,7 @@ a {
   padding: 0;
   margin: 0;
   font-family: "Roboto";
+  list-style: none;
 }
 
 body {
@@ -140,4 +141,7 @@ i.fa-eye {
 
 div.fa-eye-div {
   position: relative;
+}
+.slick-slide {
+  height: 100% !important;
 }

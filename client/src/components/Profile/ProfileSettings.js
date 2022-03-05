@@ -1,12 +1,11 @@
 import styles from "./profile.module.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import {
   editUserProfile,
   editUserEmail,
-  userIsAuth,
 } from "../../store/actions/users.actions";
 import { errorGlobal } from "../../store/actions";
 

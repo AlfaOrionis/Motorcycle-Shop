@@ -103,6 +103,38 @@ const getAll = async (query) => {
   }
 };
 
+const getProdsFromAllCats = async (req) => {
+  //I just wanna get 8 prods from the main categories for home sliders in my page
+  try {
+    const categories = [
+      { name: "Kaski", id: "6216160087b585df4240a5ec" },
+      { name: "Kurtki", id: "621615ec87b585df4240a5dc" },
+      { name: "Rękawice", id: "621615fd87b585df4240a5e8" },
+      { name: "Buty", id: "621615f987b585df4240a5e4" },
+      { name: "Spodnie", id: "621615f487b585df4240a5e0" },
+      { name: "Stroje", id: "621f591be042ba3914ba0723" },
+    ];
+    const arrayOfProds = [];
+    for (let step = 0; step < categories.length; step++) {
+      const prods = await Product.find({ category: `${categories[step].id}` })
+        .limit(parseInt(8))
+        .sort([["itemSold", "desc"]]);
+
+      arrayOfProds.push({ [categories[step].name]: prods });
+    }
+
+    //I also wanna get the best selling products from all products
+
+    const bestProds = await Product.find({})
+      .limit(parseInt(8))
+      .sort([["itemSold", "desc"]]);
+
+    return [...arrayOfProds, { bestSellers: bestProds }];
+  } catch (err) {
+    throw err;
+  }
+};
+
 const updateProduct = async (id, body) => {
   try {
     const updatedProduct = await Product.findOneAndUpdate(
@@ -236,11 +268,15 @@ const paginateProducts = async (req) => {
     );
 
     let aggQuery = Product.aggregate(aggQueryArray);
-    const sortBy = req.body.sortBy ? req.body.sortBy : { date: "desc" };
+    const order = req.body.order === "asc" ? "asc" : "desc";
+    const { sortBy } = req.body;
+
+    const sort = sortBy === "price" ? { price: order } : { date: order };
+
     const options = {
       page: req.body.page,
       limit: req.body.limit,
-      sort: { ...sortBy },
+      sort: { ...sort },
     };
 
     const products = await Product.aggregatePaginate(aggQuery, options);
@@ -259,4 +295,5 @@ module.exports = {
   getAll,
   paginateProducts,
   imgUpload,
+  getProdsFromAllCats,
 };

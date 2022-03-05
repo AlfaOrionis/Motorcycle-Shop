@@ -22,7 +22,7 @@ const AddProduct = () => {
   useEffect(() => {
     dispatch(getBrands());
     dispatch(getCategories());
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     if (notifications && (notifications.error || notifications.success)) {
       setLoading(false);
@@ -97,6 +97,7 @@ const AddProduct = () => {
           onChange={formik.handleChange}
           value={formik.values.properties}
           type="properties"
+          as="textarea"
           placeholder="Właściwości"
           id="properties"
         />
@@ -141,7 +142,6 @@ const AddProduct = () => {
           isInvalid={formik.errors.category && formik.touched.category}
           onChange={formik.handleChange}
           value={formik.values.category}
-          onChange={formik.handleChange}
           id="category"
           type="category"
           aria-label="Category select"

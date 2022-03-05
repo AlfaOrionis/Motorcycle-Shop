@@ -31,7 +31,7 @@ const AccountVerification = () => {
         }
       }
     }
-  }, []);
+  }, [isValidParam, navigate, token]);
 
   if (verificationResponse === "Success") {
     return (
@@ -65,7 +65,7 @@ const AccountVerification = () => {
       </div>
     );
   } else {
-    // This case means redirecting to "/", so i return just an empty div for that short moment
+    // This case means redirecting to "/" or loading, so i return just an empty div for that short moment
     return <div className={styles.AccountVerification}></div>;
   }
 };
