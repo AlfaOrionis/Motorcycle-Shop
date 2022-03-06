@@ -1,0 +1,264 @@
+.authModal {
+  width: 800px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 20px;
+  font-family: "Roboto";
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: #2b2b2b;
+  animation: comingIN 0.25s ease-in;
+}
+
+@keyframes comingIN {
+  from {
+    transform: translate(-50%, -55%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.authModal h1 {
+  font-weight: 500;
+  font-size: 32px;
+}
+.authModal label {
+  margin-top: 25px;
+  margin-bottom: 3px;
+}
+
+.authModal > button {
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  margin-left: 5px;
+  font-size: 17px;
+}
+
+.loginFormWrapper h1 ~ p {
+  text-align: center;
+  padding: 0 10%;
+}
+
+.authModal > button i {
+  margin-right: 5px;
+}
+
+.authModal > button:hover {
+  color: blue;
+}
+
+.loginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  height: 70%;
+}
+
+.loginFormWrapper form {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+}
+
+.loginFormWrapper input {
+  padding-left: 5px;
+  width: 100%;
+  height: 35px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.loginFormWrapper > form > div:nth-of-type(1) {
+  position: relative;
+}
+
+.loginFormWrapper button {
+  border: none;
+  line-height: 210%;
+  width: 80%;
+  font-size: 1em;
+  margin: 0 auto;
+  background-color: rgba(44, 169, 221);
+  border-radius: 15px;
+  cursor: pointer;
+}
+.loginFormWrapper div ~ button:hover {
+  opacity: 0.93;
+}
+.authModal div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.authModal div.toggleText button {
+  padding: 0 8%;
+  line-height: 250%;
+  border-radius: 15px;
+  border: none;
+  background-color: #bebebe;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.toggleText span {
+  margin: 35px 0 8px 0;
+}
+
+.authModal .close {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-weight: bold;
+  background-color: rgb(190, 190, 190);
+  cursor: pointer;
+}
+
+.authModal button:hover {
+  opacity: 0.93;
+}
+
+.loginFormWrapper input:focus {
+  box-shadow: 0px 0px 5px rgb(0, 99, 156);
+}
+
+.authModal div.passwordForget {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.passwordForget > div > span {
+  font-size: 14px;
+}
+.passwordForget > div > input {
+  width: 18px;
+  height: 18px;
+  margin: 0 7px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+.passwordForget > div {
+  display: flex;
+  text-align: start;
+  width: 50%;
+}
+
+.passwordForget > button {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  background-color: transparent;
+  color: rgb(255, 0, 0);
+  font-weight: 500;
+  text-align: end;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .authModal {
+    width: 500px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 479px) {
+  .authModal > button {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .authModal {
+    width: 300px;
+    padding: 15px 0;
+    font-size: 12px;
+  }
+  .authModal h1 {
+    font-size: 20px;
+  }
+
+  .loginFormWrapper form {
+    width: 95%;
+  }
+}
+
+/* ACCOUNT VERIFICATION STYLING */
+
+.AccountVerification {
+  width: 600px;
+  height: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.AccountVerification i {
+  color: rgba(44, 169, 221);
+  font-size: 50px;
+}
+.AccountVerification h2 {
+  margin: 15px 0;
+}
+
+@media (max-width: 600px) {
+  .AccountVerification {
+    width: 300px;
+  }
+}
+
+/* RESET PASSWORD STYLING */
+
+.ResetPasswordContainer {
+  width: 100%;
+}
+.ResetPasswordContainer form {
+  width: 500px;
+  margin: 0 auto;
+}
+.ResetPasswordContainer h1 {
+  font-size: 30px;
+  margin: 8vh 0 30px 0;
+  display: block;
+  text-align: center;
+}
+.ResetPasswordContainer label {
+  font-weight: 500;
+}
+
+.ResetPasswordContainer button {
+  width: 100%;
+  border-radius: 20px;
+  margin: 15px 0 30px 0;
+}
+
+@media (max-width: 530px) {
+  .ResetPasswordContainer form {
+    width: 95%;
+  }
+}
+
+/* NEWSLETTER STYLING */

@@ -1,0 +1,95 @@
+.Container {
+  width: 100%;
+  height: 420px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 2px rgb(32, 32, 32);
+  position: absolute;
+  top: 88px;
+  left: 0;
+  z-index: 1000;
+  display: block;
+}
+
+div.Container {
+  cursor: default;
+}
+
+.Container h1 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  line-height: normal;
+  padding-bottom: 10px;
+  margin: 0;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+.Container > div {
+  height: calc(10% -10px);
+  width: 760px;
+  margin: 0 auto;
+}
+.Container ul {
+  width: 760px;
+  height: 90%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.Container ul li {
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  height: 50%;
+  background-color: aqua;
+}
+
+.Container img {
+  height: 85%;
+}
+
+.Container a {
+  height: 100%;
+  width: 100%;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 1024px) {
+  .Container a {
+    padding: 0;
+  }
+  .Container ul {
+    width: 1000px;
+  }
+  .Container > div {
+    width: 1000px;
+  }
+  .Container {
+    height: 420px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .Container ul {
+    width: 1200px;
+  }
+  .Container a {
+    font-size: 1rem;
+  }
+  .Container > div {
+    width: 1200px;
+  }
+}

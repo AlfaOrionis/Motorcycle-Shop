@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+a {
+  text-decoration: none !important;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto";
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.pageTitle {
+  font-size: 26px;
+  padding-bottom: 10px;
+}
+
+.loader {
+  height: 4vw;
+  width: 4vw;
+  border: 0.4vw solid rgb(4, 0, 255);
+  margin: 0 auto;
+  border-radius: 50%;
+  animation: rotate 0.6s infinite alternate-reverse linear;
+}
+
+.loader_side {
+  position: fixed;
+  z-index: 10000;
+  right: 0;
+  top: 35vh;
+  height: 8vh;
+  background-color: rgb(36, 141, 185);
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  width: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader_side > div {
+  border: 0.3vw solid rgb(255, 255, 255);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  animation: rotate 0.6s infinite alternate-reverse linear;
+}
+
+@keyframes rotate {
+  from {
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* REACT SLICK STYLING  */
+
+.slick-arrow {
+  background-color: transparent !important;
+  position: absolute !important;
+  height: 100% !important;
+  width: 5% !important;
+  z-index: 10 !important;
+}
+
+.slick-prev {
+  left: 0 !important;
+}
+
+.slick-next {
+  right: 0 !important;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 40px !important;
+  color: rgb(43, 43, 43) !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+}
+
+.slick-prev::before {
+  left: 2% !important;
+}
+.slick-next::before {
+  right: 2% !important;
+}
+
+@media (max-width: 1279px) {
+  .pageTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  /*a little toast adjust */
+  .Toastify__toast-container--bottom-right {
+    transform: scale(0.95) !important;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px !important;
+  }
+  .loader_side > div {
+    height: 30px;
+    width: 30px;
+    border-width: 2px;
+  }
+}
+
+.invalid {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 3px;
+}
+
+i.fa-eye {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+}
+
+div.fa-eye-div {
+  position: relative;
+}
+.slick-slide {
+  height: 100% !important;
+}
