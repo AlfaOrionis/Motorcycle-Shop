@@ -54,6 +54,15 @@
 .cartHamburger button:hover {
   color: red;
 }
+.emptyCart {
+  margin-top: 20px;
+}
+.emptyCart p {
+  font-size: 1.5rem;
+  text-align: center;
+  border-top: 2px solid rgb(220, 220, 220);
+  padding-top: 10px;
+}
 
 /* CART HEADER */
 .cartHamburger header {

@@ -30,7 +30,7 @@ const MainLayout = (props) => {
     <>
       {props.children}
       <NewsLetterBanner />
-      <ToastContainer autoClose={6000} theme="dark" pauseOnHover={false} />
+      <ToastContainer autoClose={5000} theme="dark" pauseOnHover={false} />
     </>
   );
 };

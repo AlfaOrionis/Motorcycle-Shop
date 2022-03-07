@@ -10,14 +10,14 @@ import {
 } from "../../../store/actions/users.actions";
 import { Link } from "react-router-dom";
 const CartHamburger = ({ show, onHandleShow }) => {
-  // const cart = useSelector((state) => state.users.cart);
+  const cart = useSelector((state) => state.users.cart);
   const dispatch = useDispatch();
-  // const cartItems = cart.cart;
+  const cartItems = cart.cart;
 
   const [showShipping, setShowShipping] = useState(false);
 
-  const increaseQuantityHandler = (item, size) => {
-    dispatch(userAddToCart(item, size));
+  const increaseQuantityHandler = (item, size, type) => {
+    dispatch(userAddToCart(item, size, type));
   };
 
   //type will tell if we wanna decrease quantity or completly remove
@@ -25,11 +25,6 @@ const CartHamburger = ({ show, onHandleShow }) => {
     dispatch(userRemoveFromCart(item, size, type));
   };
   //I will try to store the cart in a cookie, so it does not dissapear even if u refresh the page, its definitly a new thing for me
-  const cartCookie = cookie.load("CART");
-  const cart = cartCookie.cart;
-  const cartItems = cartCookie && cartCookie.cart.cart;
-
-  console.log(cart.cartPrice);
 
   return (
     <Modal onCloseModal={() => onHandleShow(false)} show={show}>
@@ -93,7 +88,8 @@ const CartHamburger = ({ show, onHandleShow }) => {
                           onClick={() =>
                             increaseQuantityHandler(
                               cartItem.item,
-                              cartItem.size
+                              cartItem.size,
+                              "increase"
                             )
                           }
                         >
@@ -154,6 +150,12 @@ const CartHamburger = ({ show, onHandleShow }) => {
             </footer>
           </>
         )}
+        {!cartItems ||
+          (cartItems.length < 1 && (
+            <div className={styles.emptyCart}>
+              <p>Twój koszyk jest pusty</p>
+            </div>
+          ))}
       </div>
     </Modal>
   );

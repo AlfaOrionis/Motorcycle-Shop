@@ -1,19 +1,12 @@
 import * as actions from "./index";
 import axios from "axios";
-import {
-  getTokenCookie,
-  removeCookie,
-  getAuthHeader,
-} from "../../utills/tolls";
-
-import cookie from "react-cookies";
+import { removeCookie, getAuthHeader } from "../../utills/tolls";
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const userRegister = (values) => {
   return async (dispatch) => {
     try {
-      console.log("okoko");
       const user = await axios.post("/api/auth/register", {
         email: values.email,
         password: values.password,
@@ -29,8 +22,6 @@ export const userRegister = (values) => {
         actions.successGlobal("Sprawdź swój email aby zweryfikować konto")
       );
     } catch (err) {
-      console.log(err.response.data.message);
-      console.log(err.response.data.msg);
       dispatch(actions.errorGlobal(err.response.data.message));
     }
   };
@@ -39,7 +30,6 @@ export const userRegister = (values) => {
 export const userSignIn = (values) => {
   return async (dispatch) => {
     try {
-      console.log("SigningIn");
       const user = await axios.post("/api/auth/signin", {
         email: values.email,
         password: values.password,
@@ -53,9 +43,6 @@ export const userSignIn = (values) => {
       );
       dispatch(actions.successGlobal("Witaj ponownie"));
     } catch (err) {
-      console.log(err.response);
-      console.log(err.response.data.message);
-
       dispatch(actions.errorGlobal(err.response.data.message));
     }
   };
@@ -82,7 +69,6 @@ export const userIsAuth = () => {
       );
       return user;
     } catch (err) {
-      console.log(err.response);
       dispatch(actions.userAuthenticate({ data: {}, auth: false }));
     }
   };

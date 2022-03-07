@@ -21,7 +21,7 @@ const DEFAULT_USER_STATE = {
   auth: null,
   cart: { cart: [], cartPrice: 0 },
 };
-
+let cookieCart;
 export default function usersReducer(state = DEFAULT_USER_STATE, action) {
   switch (action.type) {
     case USER_AUTH:
@@ -86,13 +86,6 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
       let cartPrice = 0;
 
       cart.forEach((item) => (cartPrice += item.totalPrice));
-      cookie.save(
-        "CART",
-        {
-          cart: { cart: [...cart], cartPrice: cartPrice },
-        },
-        { path: "/" }
-      );
 
       return {
         ...state,
@@ -102,6 +95,7 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
 
     case USER_CART_REMOVE:
       //I am basically doing similar thing as above so i could do it maybe in one function, but its already got big, so i prefer to split it
+
       let cartItems = [...state.cart.cart];
 
       //This is the type of action that will tell me if i should just decrease qunatity by 1, or remove whole item from the cart
@@ -129,13 +123,7 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
       let newCartPrice = 0;
 
       cartItems.forEach((item) => (newCartPrice += item.totalPrice));
-      cookie.save(
-        "CART",
-        {
-          cart: { cart: [...cartItems], cartPrice: newCartPrice },
-        },
-        { path: "/" }
-      );
+
       return {
         ...state,
         cart: { cart: [...cartItems], cartPrice: newCartPrice },
