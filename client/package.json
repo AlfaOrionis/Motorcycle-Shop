@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -14,7 +15,9 @@
     "react-bootstrap": "^2.1.2",
     "react-cookies": "^0.1.1",
     "react-dom": "^17.0.2",
+    "react-form-stepper": "^1.4.3",
     "react-moment": "^1.1.1",
+    "react-paypal-button-v2": "^2.6.3",
     "react-redux": "^7.2.6",
     "react-router": "^6.2.1",
     "react-router-bootstrap": "^0.26.0",
@@ -51,5 +54,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://localhost:3001"
+  "proxy": "http://localhost:3001"
 }

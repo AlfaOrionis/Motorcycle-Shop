@@ -12,7 +12,7 @@ const Profile = (props) => {
   const dispatch = useDispatch();
   //I wanna refresh the user data everytime he comes to profile and check if he still has valid token, i consider doing it as authGuard wrapper component,  with all the components that required to be signIn
   useEffect(() => {
-    console.log("PRZELADOWAC");
+    window.scrollTo(0, 0);
     dispatch(userIsAuth());
   }, [dispatch]);
 

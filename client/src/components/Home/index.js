@@ -31,36 +31,47 @@ const Home = (props) => {
       <main className={styles.main}>
         <Categories />
         <AdvertisementBanner siteInfo={props.siteInfo} />
-        <TheSlider prods={bestSellers} title={"Najczęściej kupowane:"} />
+        <TheSlider
+          prods={bestSellers}
+          title={"Najczęściej kupowane:"}
+          type={"sortBy"}
+          value={"itemSold"}
+        />
         <TheSlider
           prods={helmets}
           title={"Kaski motocyklowe:"}
-          catId={"6216160087b585df4240a5ec"}
+          value={"6216160087b585df4240a5ec"}
+          type={"categories"}
         />
         <TheSlider
           prods={jackets}
           title={"Kurtki motocyklowe:"}
-          catId={"621615ec87b585df4240a5dc"}
+          value={"621615ec87b585df4240a5dc"}
+          type={"categories"}
         />
         <TheSlider
           prods={gloves}
           title={"Rękawice motocyklowe:"}
-          catId={"621615fd87b585df4240a5e8"}
+          value={"621615fd87b585df4240a5e8"}
+          type={"categories"}
         />
         <TheSlider
           prods={shoes}
           title={"Buty motocyklowe:"}
-          catId={"621615f987b585df4240a5e4"}
+          value={"621615f987b585df4240a5e4"}
+          type={"categories"}
         />
         <TheSlider
           prods={pants}
           title={"Spodnie motocyklowe:"}
-          catId={"621615f487b585df4240a5e0"}
+          value={"621615f487b585df4240a5e0"}
+          type={"categories"}
         />
         <TheSlider
           prods={suits}
           title={"Kombinezony motocyklowe:"}
-          catId={"621f591be042ba3914ba0723"}
+          value={"621f591be042ba3914ba0723"}
+          type={"categories"}
         />
       </main>
     </>

@@ -15,7 +15,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Hubballi&family=Roboto:wght@300;400;500;700&family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    
+    <script src="https://geowidget.easypack24.net/js/sdk-for-javascript.js"></script>
+    <script type="text/javascript">
 
+
+
+      window.easyPackAsyncInit = function () {
+        easyPack.init({
+            defaultLocale: 'pl',
+            mapType: 'osm',
+            searchType: 'osm',
+            points: {
+                types: ['parcel_locker']
+            },
+            map: {
+                initialTypes: ['parcel_locker']
+            }
+        });
+      };
+      const openModal = () => {
+        easyPack.modalMap(function(point, modal) {
+          modal.closeModal()
+          const input = document.getElementById("inpostValue")
+   
+        input.setAttribute("value", `${point.address.line1}, ${point.address.line2}`)
+       
+
+        }, { width: 500, height: 600 });
+      }
+    </script>
+  
+
+      <link rel="stylesheet" href="https://geowidget.easypack24.net/css/easypack.css"/>
   
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -32,11 +65,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+
+    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <div id="overlays"></div>
+    <button hidden id="openModalBtn" onclick="openModal()"></button>
+
+
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -47,7 +87,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  
 
-   
   </body>
+
+  
 </html>

@@ -24,9 +24,9 @@
 }
 /* */
 
-/* PAGINATION CARD IN THE TOP OF THE PAGE */
-/* PAGINATION CARD IN THE TOP OF THE PAGE */
-/* PAGINATION CARD IN THE TOP OF THE PAGE */
+/* PAGINATION CARD WITH SORTING */
+/* PAGINATION CARD WITH SORTING*/
+/* PAGINATION CARD WITH SORTING*/
 .paginationCard {
   width: 90%;
   box-shadow: 0 0 5px rgb(70, 70, 70);
@@ -163,12 +163,12 @@ button.active {
   border-bottom: 2px solid rgb(231, 231, 231);
   padding-bottom: 10px;
   font-weight: 400;
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 .productsPagination h3 {
   font-weight: 500;
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 10px 0;
 }
 
@@ -187,10 +187,10 @@ button.active {
 
 .productsPagination div:nth-of-type(2) > ul > li {
   list-style: none;
-  font-size: 1em;
+  font-size: 0.8em;
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .productsPagination div:nth-of-type(2) > ul > li > input {
@@ -357,6 +357,17 @@ div.productAttributes > p {
   }
   .imgWrap {
     width: 50%;
+  }
+
+  .productsPagination h2 {
+    font-size: 1.6em;
+  }
+  .productsPagination h3 {
+    font-size: 1.2em;
+  }
+  .productsPagination div:nth-of-type(2) > ul > li {
+    font-size: 1em;
+    margin-bottom: 8px;
   }
 }
 

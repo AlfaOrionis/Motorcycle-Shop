@@ -8,13 +8,13 @@ const PhoneMenu = (props) => {
       }`}
     >
       <li>
-        <Link to="/">Wszystkie produkty</Link>
+        <Link to="/sklep">Wszystkie produkty</Link>
       </li>
       <li>
-        <Link to="/">Ubrania </Link>
+        <Link to="/sklep">Ubrania </Link>
       </li>
       <li>
-        <Link to="/">Akcesoria</Link>
+        <Link to="/sklep">Akcesoria</Link>
       </li>
     </div>
   );

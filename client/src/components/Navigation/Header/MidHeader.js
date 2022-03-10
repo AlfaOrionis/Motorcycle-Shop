@@ -32,7 +32,7 @@ const MidHeader = (props) => {
       )}
       <ul>
         <li
-          onClick={() => setState(null)}
+          onClick={closeMenu}
           className={classes.productsLi}
           onMouseEnter={() => {
             setState("Wszystkie produkty");
@@ -50,7 +50,7 @@ const MidHeader = (props) => {
 
         <li
           className={classes.productsLi}
-          onClick={() => setState(null)}
+          onClick={closeMenu}
           onMouseEnter={() => setState("Ubrania")}
           onMouseLeave={() => {
             setState(null);
@@ -64,7 +64,7 @@ const MidHeader = (props) => {
         </li>
 
         <li
-          onClick={() => setState(null)}
+          onClick={closeMenu}
           className={classes.productsLi}
           onMouseEnter={() => setState("Akcesoria")}
           onMouseLeave={() => {

@@ -10,7 +10,7 @@ const Footer = () => {
             <h2>Sklep stacjonarny </h2>
             <a href="https://goo.gl/maps/JbiXYxCsA1wiYsk87" target="_blank">
               <i
-                style={{ color: "red" }}
+                style={{ color: "red", marginRight: "5px" }}
                 className="fa-solid fa-location-dot"
               ></i>
               Wrocławska 26a/7

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Navigation/Header";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Navigation/Footer/Footer";
@@ -14,8 +14,9 @@ import AccountVerification from "./components/Auth/AccountVerification";
 import ResetPassword from "./components/Auth/ResetPassword";
 import NewsLetterPage from "./components/Auth/NewsLetterPage";
 import ProductDetails from "./components/Shop/ProductDetails";
-import CartHamburger from "./components/Shop/Cart.js/CartHamburger";
-import CartBtn from "./components/Shop/Cart.js/CartBtn";
+import Cart from "./components/Shop/Cart/Cart";
+import CartBtn from "./components/Shop/Cart/CartBtn";
+import SubmitShopping from "./components/Shop/SubmitShopping";
 
 const App = () => {
   console.log("OK");
@@ -48,9 +49,15 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header openPhoneMenu={openPhoneMenu} showAuth={showAuthHandler} />
+      <Header
+        openPhoneMenu={openPhoneMenu}
+        onHandleShow={showCartHandler}
+        showAuth={showAuthHandler}
+      />
+
       {showAuth && <Auth showAuth={showAuthHandler} />}
       <PhoneMenu showPhoneMenu={showPhoneMenu} />
+
       <MainLayout position="top-right">
         <Routes>
           <Route path="/news-letter" element={<NewsLetterPage />} />
@@ -59,6 +66,12 @@ const App = () => {
 
           <Route path="/sklep" element={<Shop />} />
           <Route path="/sklep/product/:id" element={<ProductDetails />} />
+          {users.auth && users.data.verified && (
+            <Route
+              path="/koszyk"
+              element={<SubmitShopping cart={users.cart} />}
+            />
+          )}
 
           {users.auth ? (
             <Route path="/profile/*" element={<Profile users={users} />} />
@@ -68,8 +81,14 @@ const App = () => {
         </Routes>
       </MainLayout>
 
-      <CartHamburger show={showCart} onHandleShow={showCartHandler} />
-      <CartBtn onHandleShow={showCartHandler} />
+      <Cart
+        show={showCart}
+        onHandleShow={showCartHandler}
+        onShowAuthHandler={showAuthHandler}
+        users={users}
+        hamburger
+      />
+      <CartBtn onHandleShow={showCartHandler} cart={users.cart} />
       <Footer siteInfo={siteInfo} />
     </BrowserRouter>
   );

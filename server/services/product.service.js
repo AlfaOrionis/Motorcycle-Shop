@@ -271,7 +271,10 @@ const paginateProducts = async (req) => {
     const order = req.body.order === "asc" ? "asc" : "desc";
     const { sortBy } = req.body;
 
-    const sort = sortBy === "price" ? { price: order } : { date: order };
+    const sort =
+      (sortBy === "price" && { price: order }) ||
+      (sortBy === "date" && { date: order }) ||
+      (sortBy === "itemSold" && { itemSold: order });
 
     const options = {
       page: req.body.page,

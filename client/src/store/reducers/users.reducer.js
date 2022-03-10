@@ -1,4 +1,3 @@
-import cookie from "react-cookies";
 import {
   USER_CART_ADD,
   USER_AUTH,
@@ -21,7 +20,7 @@ const DEFAULT_USER_STATE = {
   auth: null,
   cart: { cart: [], cartPrice: 0 },
 };
-let cookieCart;
+
 export default function usersReducer(state = DEFAULT_USER_STATE, action) {
   switch (action.type) {
     case USER_AUTH:

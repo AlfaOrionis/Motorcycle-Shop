@@ -81,25 +81,18 @@ const NewPasswordPopUp = ({ onShow, onHandleClose }) => {
         <Modal.Body>
           <Form.Group className="mb-3" id="currentPassword">
             <Form.Label htmlFor="currentPassword">Obecne hasło</Form.Label>
-            <div className="fa-eye-div">
-              <Form.Control
-                isInvalid={
-                  formik.errors.currentPassword &&
-                  formik.touched.currentPassword
-                }
-                onChange={formik.handleChange}
-                value={formik.values.currentPassword}
-                type={isVisable1 ? "text" : "password"}
-                placeholder="Bieżące hasło"
-                id="currentPassword"
-              ></Form.Control>
-              <i
-                onClick={() => {
-                  setIsVisable1((prev) => !prev);
-                }}
-                className="fa-solid fa-eye"
-              ></i>
-            </div>
+
+            <Form.Control
+              isInvalid={
+                formik.errors.currentPassword && formik.touched.currentPassword
+              }
+              onChange={formik.handleChange}
+              value={formik.values.currentPassword}
+              type={isVisable1 ? "text" : "password"}
+              placeholder="Bieżące hasło"
+              id="currentPassword"
+            ></Form.Control>
+
             <Form.Control.Feedback type="invalid">
               {formik.errors.currentPassword}
             </Form.Control.Feedback>
@@ -107,24 +100,18 @@ const NewPasswordPopUp = ({ onShow, onHandleClose }) => {
 
           <Form.Group className="mb-3" id="newPassword">
             <Form.Label htmlFor="newPassword">Nowe hasło</Form.Label>
-            <div className="fa-eye-div">
-              <Form.Control
-                isInvalid={
-                  formik.errors.newPassword && formik.touched.newPassword
-                }
-                onChange={formik.handleChange}
-                value={formik.values.newPassword}
-                placeholder="Nowe hasło"
-                type={isVisable2 ? "text" : "password"}
-                id="newPassword"
-              ></Form.Control>
-              <i
-                onClick={() => {
-                  setIsVisable2((prev) => !prev);
-                }}
-                className="fa-solid fa-eye"
-              ></i>
-            </div>
+
+            <Form.Control
+              isInvalid={
+                formik.errors.newPassword && formik.touched.newPassword
+              }
+              onChange={formik.handleChange}
+              value={formik.values.newPassword}
+              placeholder="Nowe hasło"
+              type={isVisable2 ? "text" : "password"}
+              id="newPassword"
+            ></Form.Control>
+
             <Form.Control.Feedback type="invalid">
               {formik.errors.newPassword}
             </Form.Control.Feedback>
@@ -134,25 +121,19 @@ const NewPasswordPopUp = ({ onShow, onHandleClose }) => {
             <Form.Label htmlFor="repeatNewPassword">
               Potwierdź nowe hasło
             </Form.Label>
-            <div className="fa-eye-div">
-              <Form.Control
-                isInvalid={
-                  formik.errors.repeatNewPassword &&
-                  formik.touched.repeatNewPassword
-                }
-                onChange={formik.handleChange}
-                value={formik.values.repeatNewPassword}
-                placeholder="Potwierdź nowe hasło"
-                type={isVisable3 ? "text" : "password"}
-                id="repeatNewPassword"
-              ></Form.Control>
-              <i
-                onClick={() => {
-                  setIsVisable3((prev) => !prev);
-                }}
-                className="fa-solid fa-eye"
-              ></i>
-            </div>
+
+            <Form.Control
+              isInvalid={
+                formik.errors.repeatNewPassword &&
+                formik.touched.repeatNewPassword
+              }
+              onChange={formik.handleChange}
+              value={formik.values.repeatNewPassword}
+              placeholder="Potwierdź nowe hasło"
+              type={isVisable3 ? "text" : "password"}
+              id="repeatNewPassword"
+            ></Form.Control>
+
             <Form.Control.Feedback type="invalid">
               {formik.errors.repeatNewPassword && "Hasła nie są takie same!"}
             </Form.Control.Feedback>

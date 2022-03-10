@@ -12,8 +12,8 @@ var settings = {
   arrows: true,
 };
 
-const TheSlider = ({ prods, title, catId }) => {
-  const linkTo = `/sklep?categories=${catId}`;
+const TheSlider = ({ prods, title, value, type }) => {
+  const linkTo = `/sklep?${type}=${value}`;
 
   return (
     <>
@@ -26,11 +26,14 @@ const TheSlider = ({ prods, title, catId }) => {
           {prods &&
             prods.map((prod) => (
               <div className={styles.sliderDiv} key={prod._id}>
-                <Link style={{ height: "100%", position: "relative" }} to="/">
+                <Link
+                  style={{ height: "100%", position: "relative" }}
+                  to={`/sklep/product/${prod._id}`}
+                >
                   <img src={imageCheck(prod)} />
 
                   <h3>
-                    <span style={{ fontWeight: "400" }}>od</span>{" "}
+                    <span style={{ fontWeight: "400" }}>od </span>
                     {prod.price + ",00 zł"}
                   </h3>
                   <h2>{prod.name}</h2>

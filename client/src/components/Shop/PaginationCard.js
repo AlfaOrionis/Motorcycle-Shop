@@ -14,11 +14,15 @@ const PaginationCard = ({
   onGoToNext,
   onHandleSortByPrice,
   onHandleSortByDate,
+  onHandleSortByItemSold,
   onHandleLimit,
+
   //props for PaginationFIlterCard
   categories,
   brands,
   categoriesState,
+  brandsState,
+  sizeState,
   onHandleMinimum,
   onHandleMaximum,
   onSizeHandler,
@@ -83,7 +87,16 @@ const PaginationCard = ({
               </button>
             </li>
             <li>
-              <button>Popularne</button>
+              <button
+                onClick={() => onHandleSortByItemSold("desc")}
+                className={
+                  sortByState === "itemSold" && orderState === "desc"
+                    ? `${styles.active}`
+                    : null
+                }
+              >
+                Popularne
+              </button>
             </li>
             <li>
               <button
@@ -154,6 +167,8 @@ const PaginationCard = ({
           categories={categories}
           brands={brands}
           categoriesState={categoriesState}
+          brandsState={brandsState}
+          sizeState={sizeState}
           onHandleMinimum={onHandleMinimum}
           onHandleMaximum={onHandleMaximum}
           onSizeHandler={onSizeHandler}

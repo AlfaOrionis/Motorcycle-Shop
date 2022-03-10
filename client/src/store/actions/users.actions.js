@@ -1,7 +1,6 @@
 import * as actions from "./index";
 import axios from "axios";
 import { removeCookie, getAuthHeader } from "../../utills/tolls";
-
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const userRegister = (values) => {

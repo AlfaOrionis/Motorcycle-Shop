@@ -4,12 +4,12 @@ import * as img from "../../../Images/Clothes/Clothes";
 
 const HoverMenu = ({ category, open, close }) => {
   const clothes = [
-    { name: "Rękawice", img: img.Gloves },
-    { name: "Kaski", img: img.Helmets },
-    { name: "Spodnie", img: img.Pants },
-    { name: "Stroje", img: img.Suits },
-    { name: "Buty", img: img.Shoes },
-    { name: "Kurtki", img: img.Jackets },
+    { name: "Rękawice", img: img.Gloves, category: "621615fd87b585df4240a5e8" },
+    { name: "Kaski", img: img.Helmets, category: "6216160087b585df4240a5ec" },
+    { name: "Spodnie", img: img.Pants, category: "621615f487b585df4240a5e0" },
+    { name: "Stroje", img: img.Suits, category: "621f591be042ba3914ba0723" },
+    { name: "Buty", img: img.Shoes, category: "621615f987b585df4240a5e4" },
+    { name: "Kurtki", img: img.Jackets, category: "621615ec87b585df4240a5dc" },
     { name: "Ochraniacze", img: img.Protectors },
     { name: "Kominiarki", img: img.Balaclavas },
   ];
@@ -46,7 +46,10 @@ const HoverMenu = ({ category, open, close }) => {
         {readyToMap.map((product) => {
           return (
             <li key={product.name}>
-              <Link to="/">
+              <Link
+                onClick={close}
+                to={`/sklep?categories=${product.category}`}
+              >
                 <img src={product.img} />
                 <span>{product.name}</span>
               </Link>
@@ -54,57 +57,6 @@ const HoverMenu = ({ category, open, close }) => {
           );
         })}
       </ul>
-
-      {/* <ul>
-        <li>
-          <Link to="/">
-            <img src={img.Gloves} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Helmets} />
-            <span>{main === "Wszystkie produkty" && "Kaski"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Pants} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Suits} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Shoes} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Jackets} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Jackets} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/">
-            <img src={img.Jackets} />
-            <span>{main === "Wszystkie produkty" && "Rękawice"}</span>
-          </Link>
-        </li>
-      </ul> */}
     </div>
   );
 };

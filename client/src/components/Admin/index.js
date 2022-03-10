@@ -17,7 +17,7 @@ const defaultValues = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "keywords":
-      return { ...state, keywords: action.payload };
+      return { ...state, keywords: action.payload, page: 1 };
     case "brand":
       let brands = [...state.brands];
       const existingBrandIndex = brands.findIndex(
@@ -28,8 +28,10 @@ const reducer = (state, action) => {
         return {
           ...state,
           brands: brands,
+          page: 1,
         };
-      } else return { ...state, brands: [...state.brands, action.payload] };
+      } else
+        return { ...state, brands: [...state.brands, action.payload], page: 1 };
     case "nextPage": {
       return { ...state, page: state.page + 1 };
     }

@@ -1,3 +1,9 @@
+/* IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT */
+
+/* Sometimes i will override some styles just right after, those will be a styles for site version, its pretty much the same cart but displayed on a site where u wanna submit your shopping */
+
+/* IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT */
+
 /* CART BUTTON CART BUTTON */
 /* CART BUTTON CART BUTTON */
 .cartBtn {
@@ -34,7 +40,13 @@
   background-color: white;
   transition: 0.25s cubic-bezier(0, 0, 0, 0.9);
 }
-
+.cartHamburger.siteVersion {
+  position: initial;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 0 5px rgb(70, 70, 70);
+  margin-top: 20px;
+}
 .active {
   transform: translate(0, 0);
 }
@@ -86,6 +98,10 @@
   flex-grow: 1;
   overflow-y: auto;
 }
+
+main.siteVersionMain {
+  overflow-y: initial;
+}
 .cartHamburger ul {
   padding: 0;
   margin: 0;
@@ -114,11 +130,12 @@
 
 .infoWrapper div:nth-of-type(1) {
   display: flex;
+  justify-content: space-between;
 }
 .infoWrapper div:nth-of-type(1) button {
   height: fit-content;
   font-size: 1.2rem;
-  padding-left: 3px;
+  padding-left: 5px;
 }
 
 .infoWrapper div:nth-of-type(1) p {
@@ -175,6 +192,10 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.cartHamburger.siteVersion .priceDiv div:nth-of-type(1) {
+  margin: 15px 0;
+}
+
 .priceDiv div:nth-of-type(2) {
   font-size: 1.2rem;
 }
@@ -194,7 +215,7 @@
 
 .cartHamburger .submitBtn:hover {
   color: rgb(255, 255, 255);
-  background-color: red;
+  background-color: rgb(0, 107, 153);
 }
 
 .shippingOptions ul li {
@@ -211,11 +232,37 @@
   height: 96px;
 }
 
+@media (min-width: 480px) {
+  .cartHamburger.siteVersion .imgWrapper {
+    width: 170px;
+    height: 170px;
+  }
+
+  .cartHamburger.siteVersion .infoWrapper {
+    width: auto;
+    flex-grow: 1;
+  }
+}
+
 @media (min-width: 767px) {
   .cartBtn {
     transform: translate(-50%, -150%);
   }
   .cartHamburger {
     width: 350px;
+  }
+  .cartHamburger.siteVersion .imgWrapper {
+    width: 210px;
+    height: 210px;
+  }
+  .cartHamburger.siteVersion i {
+    font-size: 1.5rem;
+  }
+  .cartHamburger.siteVersion p {
+    font-size: 1.5rem;
+  }
+  .cartHamburger.siteVersion h1 {
+    margin: 10px 0;
+    font-size: 2.4rem;
   }
 }

@@ -36,7 +36,7 @@
 }
 
 .TopHeader h1 {
-  font-size: 22px;
+  font-size: 18px;
   padding: 0 8px 0 8px;
   margin: 0;
   font-weight: bold;
@@ -56,6 +56,11 @@
   font-size: 20px;
   padding-right: 8px;
   padding-left: 8px;
+}
+
+.right button {
+  background-color: transparent;
+  border: none;
 }
 
 .MidHeader {
@@ -100,6 +105,9 @@
 @media (min-width: 490px) {
   .BannerTitle span {
     width: 200px;
+    font-size: 22px;
+  }
+  .TopHeader h1 {
     font-size: 22px;
   }
 }

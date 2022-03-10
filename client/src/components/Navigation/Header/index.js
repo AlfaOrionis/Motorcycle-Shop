@@ -1,12 +1,16 @@
 import React from "react";
 import TopHeader from "./TopHeader";
-
+import { useLocation } from "react-router-dom";
 import MidHeader from "./MidHeader";
 const Header = (props) => {
+  const location = useLocation();
+
   return (
     <header>
-      <TopHeader showAuth={props.showAuth} />
-      <MidHeader openPhoneMenu={props.openPhoneMenu} />
+      <TopHeader onHandleShow={props.onHandleShow} showAuth={props.showAuth} />
+      {location.pathname === "/koszyk" ? null : (
+        <MidHeader openPhoneMenu={props.openPhoneMenu} />
+      )}
     </header>
   );
 };

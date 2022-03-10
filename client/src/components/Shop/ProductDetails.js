@@ -21,7 +21,6 @@ const ProductDetails = () => {
   const [sizeValue, setSizeValue] = useState("");
 
   //USE EFFECT
-
   useEffect(() => {
     window.scrollTo(0, 0);
     // FECTHING THE PRODUCT TO DISPLAY

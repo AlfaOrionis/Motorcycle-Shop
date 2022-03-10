@@ -70,6 +70,8 @@ const Products = ({ products, onGoToPrev, onGoToNext }) => {
         </div>
       </div>
     ); //This PaginationPage /\ is below the products, on bottom of the page
+  } else if (products) {
+    return <h3>Nie ma takiego produktu</h3>;
   } else return <Loader />;
 };
 

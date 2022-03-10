@@ -9,6 +9,8 @@ const PaginationFilterCard = ({
   onHandleMinimum,
   onHandleMaximum,
   categoriesState,
+  brandsState,
+  sizeState,
   phoneType,
 }) => {
   const sizes = ["s", "m", "l", "xl", "xxl"];
@@ -43,6 +45,7 @@ const PaginationFilterCard = ({
           {sizes.map((size) => (
             <li key={size}>
               <input
+                checked={sizeState.includes(size)}
                 value={size}
                 onChange={() => {
                   onSizeHandler(size);
@@ -61,6 +64,7 @@ const PaginationFilterCard = ({
             brands.map((brand) => (
               <li key={brand._id}>
                 <input
+                  checked={brandsState.includes(brand._id)}
                   onChange={() => {
                     onBrandHandler(brand._id);
                   }}

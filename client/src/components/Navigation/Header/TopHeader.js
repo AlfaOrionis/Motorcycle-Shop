@@ -24,17 +24,17 @@ const TopHeader = (props) => {
       <div className={styles.right}>
         {userAuth ? (
           <Link to="/profile">
-            <i className="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user" />
           </Link>
         ) : (
-          <span onClick={props.showAuth}>
-            <i className="fa-solid fa-user"></i>
-          </span>
+          <button onClick={props.showAuth}>
+            <i className="fa-solid fa-user" />
+          </button>
         )}
 
-        <Link to="/dashboard/user/user_cart">
-          <i className="fa-solid fa-cart-shopping"></i>
-        </Link>
+        <button onClick={() => props.onHandleShow(true)}>
+          <i className="fa-solid fa-cart-shopping" />
+        </button>
         {userAuth && (
           <button
             onClick={() => {
@@ -42,7 +42,7 @@ const TopHeader = (props) => {
               navigate("/");
             }}
           >
-            LOGOUT
+            <i className="fa-solid fa-power-off" />
           </button>
         )}
       </div>

@@ -17,6 +17,7 @@
     "url": "https://github.com/AlfaOrionis/My-project.git"
   },
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "accesscontrol": "^2.2.1",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.28.1",

@@ -52,10 +52,10 @@ const reducer = (state, action) => {
         }
       }
     case "minimum": {
-      return { ...state, min: action.payload };
+      return { ...state, min: action.payload, page: 1 };
     }
     case "maximum": {
-      return { ...state, max: action.payload };
+      return { ...state, max: action.payload, page: 1 };
     }
     case "nextPage": {
       return { ...state, page: state.page + 1 };
@@ -64,18 +64,23 @@ const reducer = (state, action) => {
       return { ...state, page: state.page - 1 };
     }
     case "limit": {
-      return { ...state, limit: action.payload };
+      return { ...state, limit: action.payload, page: 1 };
     }
     case "sortByPrice": {
       return {
         ...state,
         sortBy: "price",
         order: action.payload,
+        page: 1,
       };
     }
     case "sortByDate": {
-      return { ...state, sortBy: "date", order: action.payload };
+      return { ...state, sortBy: "date", order: action.payload, page: 1 };
     }
+    case "sortByItemSold": {
+      return { ...state, sortBy: "itemSold", order: action.payload, page: 1 };
+    }
+
     default:
       return state;
   }
@@ -94,7 +99,10 @@ const Shop = () => {
     size: [],
     min: 0,
     max: 99999,
-    sortBy: "date",
+    sortBy:
+      params.get("sortBy") && params.get("sortBy").length > 0
+        ? params.get("sortBy")
+        : "date",
     order: "desc",
     limit: 10,
   };
@@ -152,7 +160,9 @@ const Shop = () => {
     console.log(value);
     reducerDispatch({ type: "maximum", payload: value });
   };
-
+  const handleSortByItemSold = (value) => {
+    reducerDispatch({ type: "sortByItemSold", payload: value });
+  };
   const handleSortByPrice = (value) => {
     reducerDispatch({ type: "sortByPrice", payload: value });
   };
@@ -176,8 +186,11 @@ const Shop = () => {
         onHandleSortByPrice={handleSortByPrice}
         onHandleSortByDate={handleSortByDate}
         onHandleLimit={handleLimit}
+        onHandleSortByItemSold={handleSortByItemSold}
         //At this point, i have to pass the same data to PaginationCard as to the PaginationFilterCard below, because in the PaginationCard i will also display PaginationFilterCard for the phone version (<1024px) so its like PaginationCard has also whole PaginationFilterCard withIn
         categoriesState={state.categories}
+        brandsState={state.brands}
+        sizeState={state.size}
         categories={categories}
         brands={brands}
         onHandleMinimum={HandleMinimum}
@@ -191,6 +204,8 @@ const Shop = () => {
           categories={categories}
           brands={brands}
           categoriesState={state.categories}
+          brandsState={state.brands}
+          sizeState={state.size}
           onHandleMinimum={HandleMinimum}
           onHandleMaximum={HandleMaximum}
           onSizeHandler={SizeHandler}
@@ -208,17 +223,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-// case "category":
-//   let categories = [...state.categories];
-//   const existingCategoryIndex = categories.findIndex(
-//     (cat) => cat === action.payload
-//   );
-//   if (existingCategoryIndex >= 0) {
-//     categories.splice(existingCategoryIndex, 1);
-//     return {
-//       ...state,
-//       categories: categories,
-//     };
-//   } else
-//     return { ...state, categories: [...state.categories, action.payload] };
