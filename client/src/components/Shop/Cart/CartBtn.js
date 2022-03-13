@@ -11,7 +11,7 @@ const CartBtn = ({ onHandleShow, cart }) => {
 
   return (
     <button
-      style={location.pathname === "/koszyk" ? { display: "none" } : null}
+      style={location.pathname.includes("/koszyk") ? { display: "none" } : null}
       onClick={() => onHandleShow(true)}
       className={styles.cartBtn}
     >

@@ -13,15 +13,14 @@ const AccountVerification = () => {
   const isValidParam = theParam[0] === "?t";
   const token = theParam[1];
 
-  useEffect(() => {
+  useEffect(async () => {
     //if something is clearly wrong with the params, i wont even bother sending request
     if (!isValidParam || !token) {
       navigate("/");
     } else {
       try {
-        async function fetchData() {
-          await axios.get(`/api/users/verify?validation=${token}`);
-        }
+        await axios.get(`/api/users/verify?validation=${token}`);
+
         setVerificationResponse("Success");
       } catch (err) {
         console.log(err.response.data);

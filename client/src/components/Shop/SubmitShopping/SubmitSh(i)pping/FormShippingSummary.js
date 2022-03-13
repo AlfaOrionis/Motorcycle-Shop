@@ -4,6 +4,7 @@ const FormShippingSummary = ({
   Form,
   Button,
   formik,
+  navigate,
   totalPrice,
   onHandleStep,
 }) => {
@@ -16,6 +17,7 @@ const FormShippingSummary = ({
             onChange={formik.handleChange}
             value={formik.values.statue}
             id="statue"
+            checked={formik.values.statue}
             type="checkbox"
             style={{ fontSize: "14px" }}
             label="  Wyrażam zgodę na przetwarzanie podanych przeze mnie danych osobowych
@@ -29,7 +31,7 @@ const FormShippingSummary = ({
         <div className={styles.summaryShipping}>
           <div>
             <Button
-              onClick={() => onHandleStep(-1)}
+              onClick={() => navigate("/koszyk")}
               variant="warning"
               size="lg"
             >

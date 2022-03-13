@@ -4,7 +4,7 @@ const FormRecipient = ({
   Form,
   FormVAT,
   showVAT,
-  onHandleStep,
+  Link,
   onSetShowVatHandler,
   formik,
 }) => {
@@ -12,9 +12,9 @@ const FormRecipient = ({
     <div className={styles.formContainer}>
       <div>
         <h1>Dane odbiorcy</h1>
-        <button onClick={() => onHandleStep(-1)}>
+        <Link to="/koszyk">
           Wróć <i className="fa-solid fa-arrow-up-right-from-square" />
-        </button>
+        </Link>
       </div>
 
       <div className={styles.rowInputs}>
@@ -77,10 +77,10 @@ const FormRecipient = ({
         <Form.Group className="mb-3">
           <Form.Label>Miasto</Form.Label>
           <Form.Control
-            isInvalid={formik.errors.country && formik.touched.country}
+            isInvalid={formik.errors.city && formik.touched.city}
             onChange={formik.handleChange}
-            value={formik.values.country}
-            id="country"
+            value={formik.values.city}
+            id="city"
             type="text"
           />
           <Form.Control.Feedback type="invalid">

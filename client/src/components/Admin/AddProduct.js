@@ -103,12 +103,13 @@ const AddProduct = () => {
         />
         <Form.Text className="text-muted">
           Cechy produktu wpisuj, rozdzielając właściwość od wartości
-          dwukropkiem, natomiast do kolejnej cechy przejdź po przecinku, tak jak
-          w przykładzie:
+          dwukropkiem, natomiast do kolejnej cechy przejdź po znaku "|", tak jak
+          w przykładzie na niebiesko:
           <span style={{ color: "blue" }}>
-            Ochraniacze na łokcie: Tak, Wodoodporna: Nie, Materiał: Skóra
-            bydlęca
-          </span>
+            Ochraniacze na łokcie: Tak| Wodoodporna: Nie| Materiał: Skóra
+            bydlęca|
+          </span>{" "}
+          A tu masz kropkę do skopiowania :) ●
         </Form.Text>
         <Form.Control.Feedback type="invalid">
           {formik.errors.properties}

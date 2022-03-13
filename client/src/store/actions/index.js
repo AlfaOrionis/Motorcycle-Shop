@@ -12,6 +12,8 @@ import {
   PROD_ADD,
   USER_CART_ADD,
   USER_CART_REMOVE,
+  USER_CLEAR_CART,
+  USER_ORDER_HISTORY,
 } from "../types";
 
 export const userAuthenticate = (user) => ({
@@ -109,3 +111,12 @@ export const userRemoveFromCart = (data) => ({
   type: USER_CART_REMOVE,
   payload: data,
 });
+
+export const userClearCart = () => ({
+  type: USER_CLEAR_CART,
+});
+
+export const userOrderHistory = (data) => {
+  console.log(data);
+  return { type: USER_ORDER_HISTORY, payload: data };
+};

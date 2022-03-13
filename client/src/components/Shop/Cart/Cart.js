@@ -281,12 +281,17 @@ const Cart = ({
                   <p>W sumie</p> <span>{cart.cartPrice + ",00 zł"}</span>
                 </div>
               </div>
-              <button
-                onClick={() => onHandleStep(1)}
+              <Link
+                style={{
+                  textAlign: "center",
+                  fontSize: "1.5rem",
+                  padding: "8px",
+                }}
+                to="/koszyk/podsumowanie-dostawa"
                 className={styles.submitBtn}
               >
                 Przejdź dalej
-              </button>
+              </Link>
             </footer>
           </>
         )}

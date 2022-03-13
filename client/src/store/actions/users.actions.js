@@ -59,7 +59,6 @@ export const userIsAuth = () => {
   return async (dispatch) => {
     try {
       const user = await axios.get("/api/auth/isauth", getAuthHeader());
-      console.log(user);
       dispatch(
         actions.userAuthenticate({
           data: user.data,
@@ -84,11 +83,9 @@ export const editUserProfile = (values) => {
         },
         getAuthHeader()
       );
-      console.log(profile);
       dispatch(actions.updateProfile(profile));
       dispatch(actions.successGlobal("Twój profil został zaktualizowany"));
     } catch (err) {
-      console.log(err.response);
       dispatch(actions.errorGlobal(err.response.data.message));
     }
   };
@@ -125,7 +122,7 @@ export const userAddToCart = (item, size, type) => {
         return;
       }
       dispatch(actions.userAddToCart({ item, size }));
-      console.log(item);
+
       //If the user is increasing the amount of product in his cart, i dont want to show toast, it doesnt look good, he can see the changes on the price anyway
       if (type !== "increase") {
         dispatch(
@@ -135,7 +132,6 @@ export const userAddToCart = (item, size, type) => {
         );
       }
     } catch (err) {
-      console.log(err);
       dispatch(actions.errorGlobal(err.response.data.message));
     }
   };
@@ -146,7 +142,42 @@ export const userRemoveFromCart = (item, size, type) => {
     try {
       dispatch(actions.userRemoveFromCart({ item, size, type }));
     } catch (err) {
-      console.log(err);
+      dispatch(actions.errorGlobal(err.response.data.message));
+    }
+  };
+};
+
+export const userCreateOrder = (values) => {
+  return async (dispatch) => {
+    try {
+      await axios.post(
+        "/api/order/order",
+        {
+          recipientInfo: values.recipientInfo,
+          VAT_DATA: values.VAT_DATA,
+          orderPrice: values.orderPrice,
+          cart: values.cart,
+          shipping: values.shipping,
+          shippingInfo: values.shippingInfo,
+          ppData: values.ppData,
+        },
+        getAuthHeader()
+      );
+
+      //After creating an order i want to clear user cart
+      dispatch(actions.userClearCart());
+    } catch (err) {
+      dispatch(actions.errorGlobal(err.response.data.message));
+    }
+  };
+};
+
+export const userOrderHistory = () => {
+  return async (dispatch) => {
+    try {
+      const OrderHistory = await axios.get("/api/order/order", getAuthHeader());
+      dispatch(actions.userOrderHistory(OrderHistory.data));
+    } catch (err) {
       dispatch(actions.errorGlobal(err.response.data.message));
     }
   };

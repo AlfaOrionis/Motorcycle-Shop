@@ -8,6 +8,7 @@ import AddProduct from "../Admin/AddProduct";
 import AddRemoveBrandCategory from "../Admin/AddRemoveBrandCategory";
 import { useDispatch } from "react-redux";
 import { userIsAuth } from "../../store/actions/users.actions";
+import OrderHistory from "./OrderHistory";
 const Profile = (props) => {
   const dispatch = useDispatch();
   //I wanna refresh the user data everytime he comes to profile and check if he still has valid token, i consider doing it as authGuard wrapper component,  with all the components that required to be signIn
@@ -22,8 +23,11 @@ const Profile = (props) => {
       <div className={styles.profileRoutesWrapper}>
         <Routes>
           <Route path="/" element={<ProfileSettings users={props.users} />} />
+          <Route
+            path="/history"
+            element={<OrderHistory users={props.users} />}
+          />
           <Route path="/admin_add_product" element={<AddProduct />} />
-          <Route path="/addproducts" element={<ProfileSettings />} />
           <Route path="/admin_products" element={<Admin />} />
           <Route
             path="/admin_add_brand_category"

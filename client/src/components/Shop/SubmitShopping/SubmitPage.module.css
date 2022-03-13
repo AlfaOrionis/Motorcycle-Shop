@@ -5,7 +5,8 @@
 .step,
 .formContainer,
 .shippingContainer,
-.summaryShippingContainer {
+.summaryShippingContainer,
+.paymentContainer {
   box-shadow: 0 0 5px rgb(70, 70, 70);
   padding: 10px;
   margin-top: 20px;
@@ -15,7 +16,12 @@
   overflow: hidden;
 }
 
-.formContainer > div:nth-of-type(1) {
+.pageContainer h3 {
+  font-weight: 400 !important;
+}
+
+.formContainer > div:nth-of-type(1),
+.paymentContainer > div:nth-of-type(1) {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,6 +103,52 @@
   background-color: transparent;
   color: rgb(44, 169, 221);
   margin-top: 3px;
+}
+
+/* PAYMENT PAYMENT */
+.paymentTotalPrice {
+  text-align: end;
+  font-weight: 500;
+  padding-right: 2%;
+  margin: 10px;
+}
+.paymentRecipientInfo {
+  margin: 30px 0;
+}
+.paymentRecipientInfo p {
+  margin-bottom: 5px;
+  background-color: rgba(44, 168, 221, 0.15);
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.shippingInfo > p {
+  margin-bottom: 5px;
+  background-color: rgba(44, 168, 221, 0.15);
+  border-radius: 5px;
+  padding-left: 5px;
+  font-weight: 500;
+}
+/* SUBMIT PAGE */
+.successPage {
+  min-height: 30vh;
+  margin: 5vh 0;
+  text-align: center;
+}
+.successPage i {
+  font-size: 3rem;
+  margin: 20px 0;
+  color: rgb(44, 169, 221);
+}
+.successPage h1,
+.successPage a {
+  font-family: "Hubballi";
+}
+
+.successPage a {
+  display: block;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 @media (min-width: 768px) {

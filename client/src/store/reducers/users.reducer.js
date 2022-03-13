@@ -5,6 +5,8 @@ import {
   USER_EDIT_PROFILE,
   USER_SIGN_OUT,
   USER_CART_REMOVE,
+  USER_CLEAR_CART,
+  USER_ORDER_HISTORY,
 } from "../types";
 
 const DEFAULT_USER_STATE = {
@@ -88,7 +90,6 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
 
       return {
         ...state,
-        data: { ...state.data },
         cart: { cart: [...cart], cartPrice },
       };
 
@@ -126,6 +127,21 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
       return {
         ...state,
         cart: { cart: [...cartItems], cartPrice: newCartPrice },
+      };
+
+    case USER_CLEAR_CART:
+      return {
+        ...state,
+        cart: { cart: [], cartPrice: 0 },
+      };
+
+    case USER_ORDER_HISTORY:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          history: action.payload,
+        },
       };
 
     default:

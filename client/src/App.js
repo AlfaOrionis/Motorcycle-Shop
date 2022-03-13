@@ -68,7 +68,7 @@ const App = () => {
           <Route path="/sklep/product/:id" element={<ProductDetails />} />
           {users.auth && users.data.verified && (
             <Route
-              path="/koszyk"
+              path="/koszyk/*"
               element={<SubmitShopping cart={users.cart} />}
             />
           )}

@@ -8,7 +8,7 @@ const Header = (props) => {
   return (
     <header>
       <TopHeader onHandleShow={props.onHandleShow} showAuth={props.showAuth} />
-      {location.pathname === "/koszyk" ? null : (
+      {location.pathname.includes("/koszyk") ? null : (
         <MidHeader openPhoneMenu={props.openPhoneMenu} />
       )}
     </header>

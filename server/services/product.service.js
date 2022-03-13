@@ -271,10 +271,9 @@ const paginateProducts = async (req) => {
     const order = req.body.order === "asc" ? "asc" : "desc";
     const { sortBy } = req.body;
 
-    const sort =
-      (sortBy === "price" && { price: order }) ||
+    const sort = (sortBy === "price" && { price: order }) ||
       (sortBy === "date" && { date: order }) ||
-      (sortBy === "itemSold" && { itemSold: order });
+      (sortBy === "itemSold" && { itemSold: order }) || { date: order };
 
     const options = {
       page: req.body.page,
@@ -286,6 +285,7 @@ const paginateProducts = async (req) => {
 
     return products;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };

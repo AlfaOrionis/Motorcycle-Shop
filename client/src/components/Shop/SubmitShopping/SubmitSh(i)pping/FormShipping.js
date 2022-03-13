@@ -1,7 +1,5 @@
 import styles from "../SubmitPage.module.css";
 
-import { PayPalButton } from "react-paypal-button-v2";
-
 const FormShipping = ({
   Form,
   cart,
@@ -10,8 +8,6 @@ const FormShipping = ({
   shippingOption,
   onShippingOptionHandler,
 }) => {
-  //
-
   const shippingOptions = [
     { name: "Kurier", price: cart.cartPrice >= 500 ? 0 : 15 },
     { name: "Odbiór osobisty, płatność z góry", price: 0 },
@@ -22,22 +18,6 @@ const FormShipping = ({
     },
     { name: "Odbiór osobisty | Płatność przy odbiorze", price: 0 },
   ];
-
-  //PAYPAL PAYPAL
-
-  const generateItems = () => {
-    let items = cart.cart.map((item) => ({
-      unit_amount: {
-        currency_code: "USD",
-        value: item.item.price,
-      },
-      description: `SIZE ${item.size}`,
-      quantity: item.quantity,
-      name: item.item.name,
-    }));
-
-    return items;
-  };
 
   return (
     <div className={styles.shippingContainer}>
@@ -62,12 +42,13 @@ const FormShipping = ({
       ))}
       {shippingOption &&
       shippingOption.name === "Paczkomat inpost" &&
+      inpostValue &&
       inpostValue.value ? (
         <div className={styles.packagePickUp}>
           <p>
             <strong>Odbiór w paczkomacie:</strong>
           </p>
-          <p>{inpostValue.value}</p>
+          <p>{inpostValue && inpostValue.value}</p>
           <button onClick={() => inpostBtn.onclick()}>Zmień</button>
         </div>
       ) : null}
@@ -81,40 +62,6 @@ const FormShipping = ({
           loading="lazy"
         />
       )}
-
-      {/* <PayPalButton
-        options={{
-          clientId:
-            "AVmmSMEOrySFYIiK5jwemEzNSMXpmrwaF9reG-JFdiljOihR7hE-2I2Qd9pKQ9zgsCJvlNbhQxqZtq0M",
-        }}
-        createOrder={(data, actions) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: "awd",
-                amount: {
-                  currency_code: "USD",
-                  value: cart.cartPrice,
-                  breakdown: {
-                    item_total: {
-                      currency_code: "USD",
-                      value: cart.cartPrice,
-                    },
-                  },
-                },
-                items: generateItems(),
-              },
-            ],
-          });
-        }}
-        onSuccess={(details, data) => {
-          console.log(details);
-          console.log(data);
-          alert("Transaction completed by " + details.payer.name.given_name);
-        }}
-      /> */}
-
-      <input hidden id="inpostValue" />
     </div>
   );
 };

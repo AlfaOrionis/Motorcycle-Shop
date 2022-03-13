@@ -66,11 +66,11 @@ const FormVAT = ({ Form, formik }) => {
         <Form.Group className="mb-3">
           <Form.Label>Miasto</Form.Label>
           <Form.Control
-            isInvalid={formik.errors.countryVAT && formik.touched.countryVAT}
+            isInvalid={formik.errors.cityVAT && formik.touched.cityVAT}
             onChange={formik.handleChange}
-            value={formik.values.countryVAT}
+            value={formik.values.cityVAT}
             type="text"
-            id="countryVAT"
+            id="cityVAT"
           />
           <Form.Control.Feedback type="invalid">
             Wypełnij to pole

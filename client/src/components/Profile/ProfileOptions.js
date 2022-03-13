@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const options = [
   { text: "Profil", link: "/profile" },
   { text: "Historia zakupów", link: "/profile/history" },
-  { text: "Ulubione", link: "/profile/favourites" },
+  { text: "Koszyk", link: "/koszyk" },
 ];
 
 const adminOptions = [

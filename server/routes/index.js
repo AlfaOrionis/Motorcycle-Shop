@@ -5,6 +5,7 @@ const userRoute = require("./user.route");
 const brandRoute = require("./brand.route");
 const productRoute = require("./product.route");
 const siteRoutes = require("./site.route");
+const orderRoutes = require("./order.route");
 const categoriesRoute = require("./category.route");
 const routesIndex = [
   {
@@ -30,6 +31,10 @@ const routesIndex = [
   {
     path: "/site",
     route: siteRoutes,
+  },
+  {
+    path: "/order",
+    route: orderRoutes,
   },
 ];
 

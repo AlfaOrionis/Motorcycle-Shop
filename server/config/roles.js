@@ -13,6 +13,7 @@ let grantsObject = {
     brand: allRights,
     product: allRights,
     site: allRights,
+    order: allRights,
   },
 
   user: {
@@ -25,6 +26,7 @@ let grantsObject = {
     },
     product: { "read:any": ["*"] },
     site: { "read:any": ["*"] },
+    order: { "read:own": ["*"], "create:any": ["*"] },
   },
 };
 

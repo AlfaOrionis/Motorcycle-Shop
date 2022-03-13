@@ -8,6 +8,8 @@ export const USER_EDIT_PROFILE = "edit_user_profile";
 export const USER_EDIT_EMAIL = "edit_user_email";
 export const USER_CART_ADD = "user_cart_add";
 export const USER_CART_REMOVE = "user_cart_remove";
+export const USER_CLEAR_CART = "user_clear_cart";
+export const USER_ORDER_HISTORY = "user_order_history";
 
 export const PROD_GET_PAGINATE = "get_prod_paginate";
 export const PROD_ADD = "prod_add";

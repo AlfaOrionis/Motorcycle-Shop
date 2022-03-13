@@ -169,6 +169,8 @@
     font-size: 20px;
   }
 }
+.orderHistory li {
+}
 
 @media (min-width: 1280px) {
   .profileSettings input {

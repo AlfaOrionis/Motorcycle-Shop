@@ -18,7 +18,7 @@ const usersController = {
   async updateProfile(req, res, next) {
     try {
       const { newFirstName, newLastName } = req.body;
-      //so i've just noticed that trim() method does not remove empty spaces between characters, so i had to come up with a function that would do that, i know its crazy, i am not sure if its actually needed, could just throw an error i guess
+      //so i've just noticed that trim() method does not remove empty spaces between characters, so i had to come up with a function that would do that, its probably not needed, but i will just leave it
 
       const validatedFirstName = await usersService.validateName(newFirstName);
       const validatedSecondName = await usersService.validateName(newLastName);

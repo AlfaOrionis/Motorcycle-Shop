@@ -37,9 +37,6 @@ tr td .date {
   font-weight: 500;
 }
 
-tr td span:nth-of-type(2) {
-  color: rgb(31, 70, 0);
-}
 .sizes {
   cursor: pointer;
 }
@@ -48,24 +45,23 @@ tr td span:nth-of-type(2) {
 }
 
 .sizes div {
-  width: 100px;
   position: relative;
   left: 0;
   top: 0;
   display: none;
-  padding-left: 2px;
-}
-.sizes div span {
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
 }
 
 .sizes:hover div {
-  background-color: rgb(255, 255, 255);
-  border: 2px solid rgba(44, 161, 229);
+  background-color: transparent;
   display: flex;
   flex-direction: column;
+}
+
+.sizes p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 
 .allBrands {

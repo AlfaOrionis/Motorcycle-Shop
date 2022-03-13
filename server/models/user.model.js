@@ -44,7 +44,7 @@ const userSchema = new Schema({
   },
   verified: { type: Boolean, default: false },
   cart: { type: Array, default: [] },
-  history: { type: Array, default: [] },
+  history: [{ type: Schema.Types.ObjectId, ref: "Order" }],
 });
 
 userSchema.pre("save", async function (next) {
