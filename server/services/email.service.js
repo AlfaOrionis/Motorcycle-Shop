@@ -1,5 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
 const nodemailer = require("nodemailer");
 const Mailgen = require("mailgen");
 require("dotenv").config();
@@ -10,6 +8,9 @@ let transporter = nodemailer.createTransport({
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
   logger: true,
   transactionLog: true,
