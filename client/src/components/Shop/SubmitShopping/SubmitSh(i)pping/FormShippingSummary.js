@@ -8,6 +8,8 @@ const FormShippingSummary = ({
   totalPrice,
   onHandleStep,
 }) => {
+  const btnSize = window.innerWidth <= 480 ? "sm" : "md";
+
   return (
     <>
       <div className={styles.summaryShippingContainer}>
@@ -33,20 +35,18 @@ const FormShippingSummary = ({
             <Button
               onClick={() => navigate("/koszyk")}
               variant="warning"
-              size="lg"
+              size={btnSize}
             >
               Wróć do koszyka
             </Button>
-          </div>
-          <div>
-            <div>
-              <p>
-                W sumie: <span>{totalPrice + ",00 zł"} </span>
-              </p>
-            </div>
-            <Button onClick={formik.handleSubmit} size="lg">
+            <Button onClick={formik.handleSubmit} size={btnSize}>
               Do podsumowania
             </Button>
+          </div>
+          <div>
+            <p>
+              W sumie: <span>{totalPrice + ",00 zł"} </span>
+            </p>
           </div>
         </div>
       </div>
