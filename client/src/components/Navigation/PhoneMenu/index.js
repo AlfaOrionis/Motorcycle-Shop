@@ -1,6 +1,10 @@
 import styles from "./PhoneMenu.module.css";
 import { Link } from "react-router-dom";
 const PhoneMenu = (props) => {
+  const closeMenuHandler = () => {
+    props.openPhoneMenu();
+  };
+
   return (
     <div
       className={`${styles.phoneCategories}  ${
@@ -8,13 +12,19 @@ const PhoneMenu = (props) => {
       }`}
     >
       <li>
-        <Link to="/sklep">Wszystkie produkty</Link>
+        <Link onClick={closeMenuHandler} to="/sklep">
+          Wszystkie produkty
+        </Link>
       </li>
       <li>
-        <Link to="/sklep">Ubrania </Link>
+        <Link onClick={closeMenuHandler} to="/sklep">
+          Ubrania
+        </Link>
       </li>
       <li>
-        <Link to="/sklep">Akcesoria</Link>
+        <Link onClick={closeMenuHandler} to="/sklep">
+          Akcesoria
+        </Link>
       </li>
     </div>
   );

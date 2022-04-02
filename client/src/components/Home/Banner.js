@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../Navigation/Header/header.module.css";
 
-import img from "../../Images/BannerIMG/auto2.png";
+import img from "../../Images/BannerIMG/auto2.jpg";
 import img2 from "../../Images/BannerIMG/Motorcycle1.jpg";
-import img3 from "../../Images/BannerIMG/Motorcycle2.png";
+import img3 from "../../Images/BannerIMG/Motorcycle2.jpg";
 
 const Banner = () => {
   const [step, setStep] = useState(0);

@@ -181,3 +181,36 @@
     max-width: 1200px;
   }
 }
+
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+  .firstContainer p,
+.secondContainer p {
+  font-size: 11px;
+}
+.firstContainer h2,
+.secondContainer h2 {
+  font-size: 1.2rem;
+}
+
+.firstContainer div:nth-of-type(2) ul li,
+.secondContainer ul li {
+  font-size: 0.7rem;
+}
+.wrapper span {
+  font-size: 12px;
+}
+.wrapper i {
+  font-size: 24px;
+
+}
+.wrapper .icon {
+  width: 45px;
+  height: 43px;
+
+}
+
+}

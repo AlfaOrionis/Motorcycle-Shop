@@ -56,7 +56,7 @@ const App = () => {
       />
 
       {showAuth && <Auth showAuth={showAuthHandler} />}
-      <PhoneMenu showPhoneMenu={showPhoneMenu} />
+      <PhoneMenu openPhoneMenu={openPhoneMenu} showPhoneMenu={showPhoneMenu} />
 
       <MainLayout position="top-right">
         <Routes>
