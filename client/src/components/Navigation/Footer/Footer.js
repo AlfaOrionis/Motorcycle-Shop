@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./footer.module.css";
-const Footer = () => {
+const Footer = ({ siteInfo }) => {
   return (
     <div className={styles.Footer}>
       <div className={styles.wrapper}>
@@ -13,7 +13,7 @@ const Footer = () => {
                 style={{ color: "red", marginRight: "5px" }}
                 className="fa-solid fa-location-dot"
               ></i>
-              Wrocławska 26a/7
+              {siteInfo && siteInfo.address}
             </a>
 
             <h2>Napisz do nas: </h2>

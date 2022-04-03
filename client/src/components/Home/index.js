@@ -12,6 +12,8 @@ const Home = (props) => {
   const [products, setProducts] = useState();
   console.log("HOME RENDER");
   useEffect(() => {
+    document.title = "Sklep Motorcycle Shop - Kup Sprzęt Online";
+    console.log("JEST");
     const prods = fetch("/api/products/get_products_from_main_categories")
       .then((res) => res.json())
       .then((res) => setProducts(res));

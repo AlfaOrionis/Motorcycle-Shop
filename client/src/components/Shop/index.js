@@ -119,6 +119,7 @@ const Shop = () => {
 
   //USE EFFECT
   useEffect(() => {
+    document.title = "Produkty";
     dispatch(getBrands());
     dispatch(getCategories());
   }, [dispatch]);

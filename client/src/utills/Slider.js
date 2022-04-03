@@ -15,6 +15,7 @@ var settings = {
 const TheSlider = ({ prods, title, value, type }) => {
   const linkTo = `/sklep?${type}=${value}`;
 
+  console.log("SLIDER");
   return (
     <>
       <Link className={styles.sliderTitle} to={linkTo}>

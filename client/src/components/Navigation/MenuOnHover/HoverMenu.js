@@ -48,7 +48,9 @@ const HoverMenu = ({ category, open, close }) => {
             <li key={product.name}>
               <Link
                 onClick={close}
-                to={`/sklep?categories=${product.category}`}
+                to={`/sklep?categories=${
+                  product.category ? product.category : ""
+                }`}
               >
                 <img src={product.img} />
                 <span>{product.name}</span>

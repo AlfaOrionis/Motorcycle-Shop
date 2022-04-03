@@ -44,6 +44,11 @@ const SubmitShopping = ({ cart }) => {
   }, []);
 
   useEffect(() => {
+    document.title =
+      (step == 0 && "Koszyk") ||
+      (step == 1 && "Dostawa") ||
+      (step == 2 && "Płatność") ||
+      (step == 3 && "Zamówienie złożone pomyślnie");
     window.scrollTo(0, 0);
   }, [step]);
 

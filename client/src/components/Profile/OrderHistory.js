@@ -8,7 +8,6 @@ import { userOrderHistory } from "../../store/actions/users.actions";
 
 const OrderHistory = ({ users }) => {
   const dispatch = useDispatch();
-  console.log(users.data.history);
   useEffect(() => {
     dispatch(userOrderHistory());
   }, []);
@@ -61,7 +60,10 @@ const OrderHistory = ({ users }) => {
                         order.cart.map((item, i) => {
                           if (i > 0)
                             return (
-                              <li style={{ borderTop: "2px solid black" }}>
+                              <li
+                                key={item.product._id}
+                                style={{ borderTop: "2px solid black" }}
+                              >
                                 <span>{i + 1}. </span>
                                 <Link to={`/sklep/product/${item.product._id}`}>
                                   {item.product.name}

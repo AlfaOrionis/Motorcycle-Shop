@@ -17,7 +17,6 @@ const Cart = ({
   onShowAuthHandler,
   site,
   hamburger,
-  onHandleStep,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

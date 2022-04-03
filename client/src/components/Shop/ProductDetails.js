@@ -1,9 +1,8 @@
 import styles from "./ProductDetails.module.css";
-
 import classes from "./shop.module.css";
 import payPoImg from "../../Images/paypo.jpg";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getProperties } from "../../utills/tolls";
 import { showMenu } from "../../utills/MenuOnScroll";
 import Description from "./Description";
@@ -28,6 +27,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((prod) => {
         setProduct(prod);
+        document.title = prod.name;
       });
 
     // MENU ON SCROLL FUNCTION (ONLY ON 1280px and higher resolution)

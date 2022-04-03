@@ -19,7 +19,6 @@ import CartBtn from "./components/Shop/Cart/CartBtn";
 import SubmitShopping from "./components/Shop/SubmitShopping";
 
 const App = () => {
-  console.log("OK");
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   //STATE
