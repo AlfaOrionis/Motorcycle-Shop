@@ -32,6 +32,7 @@ Many packages have been used in this project, if you want to see them please hav
   - 
 
 
-![Mobile 1](https://user-images.githubusercontent.com/93833984/163469301-837c2d35-4243-47bb-a6d3-1db69135266a.jpg =250x250)
+
+![Mobile 1](https://user-images.githubusercontent.com/93833984/163469728-47cc750d-4092-4d71-92d5-a5b16750424a.jpg)
 
 
