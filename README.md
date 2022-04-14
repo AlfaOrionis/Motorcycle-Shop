@@ -33,8 +33,7 @@ Many packages have been used in this project, if you want to see them please hav
 
 
 
-<img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="288" height="608">
+<img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="259" height="547">
 
-![ezgif-3-e2044f9ee1](https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif)
 
 
