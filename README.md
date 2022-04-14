@@ -28,7 +28,7 @@ Fully responsive online Motorcycle Shop build with:
   - brands
   - categories
 
-#
+
 
 ## Packages used in project
 ### Fronted:
