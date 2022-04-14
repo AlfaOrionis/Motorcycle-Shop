@@ -41,7 +41,12 @@ Many packages have been used in this project, if you want to see them please hav
 
 https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-a45c-1195fbe02d2a.mp4
 
+• Adding and deleting the product as an Administrator
+<br />
 
+
+
+https://user-images.githubusercontent.com/93833984/163473883-ce04a731-ad0d-4c38-85bb-8270f501a37b.mp4
 
 
 
