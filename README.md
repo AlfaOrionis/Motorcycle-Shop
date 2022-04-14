@@ -20,7 +20,7 @@ Many packages have been used in this project, if you want to see them please hav
   - name
   - lastname
 - reset ur password by receiving an email
-- sign up to newsletter
+- sign up for newsletter
 - sort and filter the products
 - add products to the cart
 - create an order but only if u are verified
