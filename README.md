@@ -32,8 +32,8 @@ Many packages have been used in this project, if you want to see them please hav
   - 
 
 
-<div border="2px solid black"> <div />
-<img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="259" height="547">
+<div border="2px solid black"> <img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="259" height="547"> </div>
+
 
 
 
