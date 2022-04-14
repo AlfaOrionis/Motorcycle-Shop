@@ -45,7 +45,6 @@ https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-
 
 • <strong>Adding and deleting the product as an Administrator</strong>
 
-<br />
 
 
 
