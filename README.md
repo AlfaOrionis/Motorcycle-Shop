@@ -9,7 +9,7 @@
 - reset ur password by receiving an email
 - sign up to newsletter
 - sort and filter the products
-- add them to the cart
+- add products to the cart
 - create an order but only if u are verified
 - check your order history
  
