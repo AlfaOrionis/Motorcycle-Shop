@@ -1,5 +1,12 @@
 # Motorcycle Shop
 
+Fully responsive online Motorcycle Shop build with: 
+- Javascript
+- React
+- Redux
+- Node/express.js
+- MongoDB
+
 ### In this website, you can:
 - create an account
 - verify your account by receiving an email
@@ -21,4 +28,4 @@
   - brands
   - categories
 
-Everything lands in mongoDB, expect images, those will be stored in cloudinary. The page is fully responsive, but be carefull with dynamically changing the resolution cuz its not something the user would do, and some things, in order to change, need the browser to refresh the page.
+
