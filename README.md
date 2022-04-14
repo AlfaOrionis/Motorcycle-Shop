@@ -32,6 +32,6 @@ Many packages have been used in this project, if you want to see them please hav
   - 
 
 
-![Mobile 1](https://user-images.githubusercontent.com/93833984/163469301-837c2d35-4243-47bb-a6d3-1db69135266a.jpg)
+![Mobile 1](https://user-images.githubusercontent.com/93833984/163469301-837c2d35-4243-47bb-a6d3-1db69135266a.jpg | width=100)
 
 
