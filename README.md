@@ -1,11 +1,11 @@
 # Motorcycle Shop
 
 Fully responsive online Motorcycle Shop build with: 
-- Javascript
-- React
-- Redux
-- Node/express.js
-- MongoDB
+• Javascript
+• React
+• Redux
+• Node/express.js
+• MongoDB
 
 ### In this website, you can:
 - create an account
