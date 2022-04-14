@@ -19,7 +19,7 @@ Many packages have been used in this project, if you want to see them please hav
   - password
   - name
   - lastname
-- reset ur password by receiving an email
+- reset ur password in case u forgot it, by receiving an email
 - sign up for newsletter
 - sort and filter the products
 - add products to the cart
