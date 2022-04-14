@@ -9,7 +9,7 @@ Fully responsive online Motorcycle Shop build with:
 • MongoDB
   </strong>
 <br />
-Many packages have been used in this project, if you want to see them please have a look inside the <strong>server</strong> and <strong>client</strong> json file.
+Many packages have been used in this project, if you want to see them please have a look inside the <strong>server</strong> and <strong><a href="https://github.com/AlfaOrionis/Motorcycle-Shop/blob/main/package.json">client</a></strong> json file.
 
 ### In this website, you can:
 - create an account
