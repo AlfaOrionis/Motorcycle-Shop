@@ -30,6 +30,7 @@ Fully responsive online Motorcycle Shop build with:
 
 #
 
-### # # Packages:
+## Packages:
+### Fronted:
 - awd
 
