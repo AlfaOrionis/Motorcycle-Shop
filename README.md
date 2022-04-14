@@ -29,4 +29,8 @@ Many packages have been used in this project, if you want to see them please hav
   - products
   - brands
   - categories
+  - 
+![Sklep 1](https://user-images.githubusercontent.com/93833984/163469098-d39278a9-c6c9-4490-9332-b11cf6b66ccf.png)
+
+
 
