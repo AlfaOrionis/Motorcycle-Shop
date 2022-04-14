@@ -40,8 +40,11 @@ Many packages have been used in this project, if you want to see them please hav
 
 
 https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-a45c-1195fbe02d2a.mp4
+
 <br />
+
 • <strong>Adding and deleting the product as an Administrator</strong>
+
 <br />
 
 
