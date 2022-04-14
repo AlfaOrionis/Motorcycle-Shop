@@ -32,6 +32,18 @@ Many packages have been used in this project, if you want to see them please hav
   - brands
   - categories
 
+## See how i do it!
+
+• Creating an account and placing an order
+<br />
+
+
+
+https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-a45c-1195fbe02d2a.mp4
+
+
+
+
 
 <div border="2px solid black"> <img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="259" height="547"> </div>
 
