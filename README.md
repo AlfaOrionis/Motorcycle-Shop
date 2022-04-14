@@ -1,20 +1,20 @@
 ### In this website, you can:
-• create an account
-• verify your account by receiving an email
-• change your:
+- create an account
+- verify your account by receiving an email
+- change your:
   - email
   - password
   - name
   - lastname
-• reset ur password by receiving an email
-• sign up to newsletter
-• sort and filter the products
-• add them to the cart
-• create an order but only if u are verified
-• check your order history
+- reset ur password by receiving an email
+- sign up to newsletter
+- sort and filter the products
+- add them to the cart
+- create an order but only if u are verified
+- check your order history
  
 ### As an administrator u can
-• add and delete:
+- add and delete:
   - products
   - brands
   - categories
