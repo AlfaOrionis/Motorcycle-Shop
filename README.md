@@ -35,4 +35,5 @@ Many packages have been used in this project, if you want to see them please hav
 
 ![Mobile 1](https://user-images.githubusercontent.com/93833984/163469728-47cc750d-4092-4d71-92d5-a5b16750424a.jpg)
 
+<img src="https://user-images.githubusercontent.com/93833984/163469728-47cc750d-4092-4d71-92d5-a5b16750424a.jpg" width="100" height="100">
 
