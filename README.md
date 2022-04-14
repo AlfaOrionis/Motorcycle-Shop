@@ -1,5 +1,5 @@
 # Motorcycle Shop
-
+<div>
 Fully responsive online Motorcycle Shop build with: 
 <strong>
 • Javascript
@@ -31,6 +31,7 @@ Many packages have been used in this project, if you want to see them please hav
   - products
   - brands
   - categories
+  </div>
 
 ## See how i do it!
 
