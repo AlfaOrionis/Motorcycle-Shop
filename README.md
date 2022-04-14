@@ -34,14 +34,15 @@ Many packages have been used in this project, if you want to see them please hav
 
 ## See how i do it!
 
-• Creating an account and placing an order
+• <strong>Creating an account and placing an order</strong>
 <br />
 
 
 
 https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-a45c-1195fbe02d2a.mp4
 
-• Adding and deleting the product as an Administrator
+• <strong>Adding and deleting the product as an Administrator</strong>
+<br />
 <br />
 
 
