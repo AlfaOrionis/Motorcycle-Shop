@@ -30,7 +30,8 @@ Many packages have been used in this project, if you want to see them please hav
   - brands
   - categories
   - 
-![Sklep 1](https://user-images.githubusercontent.com/93833984/163469098-d39278a9-c6c9-4490-9332-b11cf6b66ccf.png)
 
+
+![Mobile 1](https://user-images.githubusercontent.com/93833984/163469301-837c2d35-4243-47bb-a6d3-1db69135266a.jpg)
 
 
