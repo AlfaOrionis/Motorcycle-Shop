@@ -55,10 +55,7 @@ https://user-images.githubusercontent.com/93833984/163473693-a74ffe1f-b002-43fa-
 https://user-images.githubusercontent.com/93833984/163473883-ce04a731-ad0d-4c38-85bb-8270f501a37b.mp4
 
 
-## Lets see how does it look on the phone!
 
-
-<img src="https://user-images.githubusercontent.com/93833984/163472089-dad5a30c-3947-4e33-9c2b-9739d3276230.gif" width="259" height="547">
 
 
 
