@@ -8,7 +8,6 @@ const passport = require("passport");
 const { jwtStrategy } = require("./middlewares/passport");
 
 const { handleError, convertToApiError } = require("./middlewares/apiError");
-require("dotenv").config();
 
 const uri = `mongodb+srv://${process.env.ADMIN}:${process.env.ADMIN_PASS}@${process.env.CLUSTER}retryWrites=true&w=majority`;
 
