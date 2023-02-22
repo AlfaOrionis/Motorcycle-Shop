@@ -61,11 +61,13 @@
   align-items: center;
   background-color: rgb(255, 255, 255);
   height: 70%;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .loginFormWrapper form {
   background-color: rgb(255, 255, 255);
-  width: 60%;
+  width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -93,6 +95,17 @@
   background-color: rgba(44, 169, 221);
   border-radius: 15px;
   cursor: pointer;
+}
+
+.loginFormWrapper .googleLogin {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px; 
+  border: 1px solid black;
+  padding: 5px 20px; 
+}
+.googleLogin img {
+ width: 1.5rem;
+ margin-right: 10px;
 }
 .loginFormWrapper div ~ button:hover {
   opacity: 0.93;
@@ -199,7 +212,7 @@
     font-size: 20px;
   }
 
-  .loginFormWrapper form {
+  .loginFormWrapper {
     width: 95%;
   }
 }

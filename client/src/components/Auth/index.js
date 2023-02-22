@@ -9,8 +9,16 @@ import ForgotPasswordForm from "./ForgotPasswordForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { useGoogleLogin, googleLogout } from "@react-oauth/google";
+
 import { useDispatch, useSelector } from "react-redux";
-import { userRegister, userSignIn } from "../../store/actions/users.actions";
+import {
+  userRegister,
+  userSignIn,
+  userSignInGoogle,
+} from "../../store/actions/users.actions";
+
+import googleIMG from "../../Images/google.png";
 
 const Auth = ({ showAuth }) => {
   const notifications = useSelector((state) => state.notifications);
@@ -55,6 +63,14 @@ const Auth = ({ showAuth }) => {
     }
   };
 
+  const googleLogIn = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      console.log(codeResponse);
+      dispatch(userSignInGoogle(codeResponse.access_token));
+    },
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
   useEffect(() => {
     if (notifications && notifications.success) {
       showAuth();
@@ -73,7 +89,10 @@ const Auth = ({ showAuth }) => {
           <>
             <div className={styles.loginFormWrapper}>
               <h1>{formType ? "Zaloguj się" : "Zarejestruj się"} </h1>
-
+              <button className={styles.googleLogin} onClick={googleLogIn}>
+                <img alt="google" src={googleIMG} />
+                Kontynuuj z google
+              </button>
               <form onSubmit={formik.handleSubmit}>
                 <label>Adres Email</label>
                 <input

@@ -18,6 +18,8 @@ const createUser = async (email, password) => {
 };
 
 const genAuthToken = (user) => {
+  console.log("XD");
+  console.log(user);
   const token = user.generateAuthToken();
   return token;
 };

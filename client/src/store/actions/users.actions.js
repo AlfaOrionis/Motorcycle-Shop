@@ -47,6 +47,38 @@ export const userSignIn = (values) => {
   };
 };
 
+export const userSignInGoogle = (access_token) => {
+  console.log(access_token);
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${access_token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+            Accept: "application/json",
+          },
+        }
+      );
+      const user = await axios.post("/api/auth/signInGoogle", {
+        email: response.data.email,
+        firstname: response.data.given_name,
+        lastname: response.data.family_name,
+      });
+
+      dispatch(
+        actions.userAuthenticate({
+          data: user.data.user,
+          auth: true,
+        })
+      );
+      dispatch(actions.successGlobal("Witaj!"));
+    } catch (err) {
+      dispatch(actions.errorGlobal(err.response.data.message));
+    }
+  };
+};
+
 export const userSignOut = () => {
   return async (dispatch) => {
     removeCookie();

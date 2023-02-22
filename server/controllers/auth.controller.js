@@ -3,6 +3,7 @@ const { User } = require("../models/user.model");
 const { ApiError } = require("../middlewares/apiError");
 const httpStatus = require("http-status");
 const sendEmail = require("../services/email.service");
+const crypto = require("crypto");
 const authController = {
   async Register(req, res, next) {
     try {
@@ -42,6 +43,34 @@ const authController = {
 
       const user = await authService.findAndVerifyUser(email, password);
 
+      const token = await authService.genAuthToken(user);
+
+      res
+        .cookie("x-access-token", token)
+        .status(httpStatus.OK)
+        .send({ user: { ...user._doc, password: "", _id: "" }, token });
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  async signInGoogle(req, res, next) {
+    try {
+      const { email, firstname, lastname } = req.body;
+
+      let user = await User.findOne({ email: email });
+
+      if (!user) {
+        user = new User({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          password: crypto.randomBytes(32).toString("hex"),
+          verified: true,
+        });
+
+        await user.save();
+      }
       const token = await authService.genAuthToken(user);
 
       res

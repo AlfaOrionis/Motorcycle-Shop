@@ -6,6 +6,7 @@ const { addPasswordValidator } = require("../middlewares/validation");
 
 router.post("/register", addPasswordValidator, authController.Register);
 router.post("/signin", authController.signIn);
+router.post("/signInGoogle", authController.signInGoogle);
 router.get("/isauth", auth(), authController.isAuth);
 
 module.exports = router;
