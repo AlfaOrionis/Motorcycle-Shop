@@ -65,7 +65,6 @@ const Auth = ({ showAuth }) => {
 
   const googleLogIn = useGoogleLogin({
     onSuccess: (codeResponse) => {
-      console.log(codeResponse);
       dispatch(userSignInGoogle(codeResponse.access_token));
     },
     onError: (error) => console.log("Login Failed:", error),

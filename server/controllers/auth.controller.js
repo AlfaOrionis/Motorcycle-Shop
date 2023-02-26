@@ -56,15 +56,32 @@ const authController = {
 
   async signInGoogle(req, res, next) {
     try {
-      const { email, firstname, lastname } = req.body;
+      const { access_token } = req.body;
 
-      let user = await User.findOne({ email: email });
+      const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${access_token}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+            Accept: "application/json",
+          },
+        }
+      );
+
+      const {
+        email,
+        given_name: firstname,
+        family_name: lastname,
+      } = await response.json();
+
+      let user = await User.findOne({ email });
 
       if (!user) {
         user = new User({
-          firstname: firstname,
-          lastname: lastname,
-          email: email,
+          firstname,
+          lastname,
+          email,
           password: crypto.randomBytes(32).toString("hex"),
           verified: true,
         });
