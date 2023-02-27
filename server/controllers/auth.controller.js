@@ -4,6 +4,8 @@ const { ApiError } = require("../middlewares/apiError");
 const httpStatus = require("http-status");
 const sendEmail = require("../services/email.service");
 const crypto = require("crypto");
+const https = require("https");
+
 const authController = {
   async Register(req, res, next) {
     try {
@@ -57,23 +59,43 @@ const authController = {
   async signInGoogle(req, res, next) {
     try {
       const { access_token } = req.body;
+      const url = `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${access_token}`;
 
-      const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${access_token}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${access_token}`,
-            Accept: "application/json",
-          },
-        }
-      );
+      function fetch(url) {
+        return new Promise((resolve, reject) => {
+          const req = https.get(url, (res) => {
+            let data = "";
+            res.on("data", (chunk) => {
+              data += chunk;
+            });
+            res.on("end", () => {
+              if (JSON.parse(data).error) {
+                reject(new ApiError("UNAUTHORIZED", httpStatus.UNAUTHORIZED));
+              }
+              resolve(JSON.parse(data));
+            });
+          });
+          req.on("error", (err) => {});
+          req.end();
+        });
+      }
+
+      // const response = await fetch(
+      //   `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${access_token}`,
+      //   {
+      //     method: "GET",
+      //     headers: {
+      //       Authorization: `Bearer ${access_token}`,
+      //       Accept: "application/json",
+      //     },
+      //   }
+      // );
 
       const {
         email,
         given_name: firstname,
         family_name: lastname,
-      } = await response.json();
+      } = await fetch(url);
 
       let user = await User.findOne({ email });
 
