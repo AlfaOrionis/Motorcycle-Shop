@@ -8,7 +8,7 @@ import ReduxStore from "./store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 ReactDOM.render(
-  <GoogleOAuthProvider clientId={process.env.REACT_APP_GoogleOAuthProvider}>
+  <GoogleOAuthProvider clientId="550262755575-qap1fbdbqvpgj0s6a8lbpt08okf26fv3.apps.googleusercontent.com">
     <Provider store={ReduxStore()}>
       <App />
     </Provider>
